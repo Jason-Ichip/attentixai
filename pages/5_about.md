@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "About — Attentix AI"
+permalink: /about/index.html
 ---
 
 # About Attentix AI

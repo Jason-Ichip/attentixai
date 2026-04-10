@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "Technology — Attentix AI"
+permalink: /technology/index.html
 ---
 
 # Technology Deep-Dive — The Moat

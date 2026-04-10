@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "Contact — Attentix AI"
+permalink: /contact/index.html
 ---
 
 # Contact & Support

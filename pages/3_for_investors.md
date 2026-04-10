@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "For Investors — Attentix AI"
+permalink: /investors/index.html
 ---
 
 # For Investors

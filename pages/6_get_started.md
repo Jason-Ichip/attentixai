@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "Get Started — Attentix AI"
+permalink: /get-started/index.html
 ---
 
 # Get Started

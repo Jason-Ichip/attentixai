@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "Use Cases — Attentix AI"
+permalink: /use-cases/index.html
 ---
 
 # Use Cases

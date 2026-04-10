@@ -1,6 +1,7 @@
 ---
 layout: layout.liquid
 title: "Attentix AI — Enterprise Intelligence Infrastructure"
+permalink: /index.html
 ---
 
 # Attentix AI — Enterprise Intelligence Infrastructure
