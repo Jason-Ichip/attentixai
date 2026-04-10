@@ -1,0 +1,26 @@
+{
+  "name": "attentix-ai-landing",
+  "version": "1.0.0",
+  "description": "Attentix AI enterprise landing page",
+  "main": "index.js",
+  "scripts": {
+    "build": "stitch build",
+    "dev": "stitch dev",
+    "start": "stitch start"
+  },
+  "keywords": [
+    "landing-page",
+    "enterprise",
+    "ai",
+    "attentix"
+  ],
+  "author": "Attentix AI",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "stitch": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
