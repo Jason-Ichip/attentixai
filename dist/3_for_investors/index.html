@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>For Investors</h1>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong> &quot;The Enterprise AI Infrastructure Market — A $XX Billion Opportunity&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Attentix is solving the problem VCs haven't talked about yet: enterprises need AI infrastructure that's transparent, fast, and doesn't require a PhD to operate.&quot;</p>
+<p><strong>CTA Buttons:</strong></p>
+<ul>
+<li>Primary: &quot;Download Pitch Deck&quot; (gated)</li>
+<li>Secondary: &quot;Schedule a Meeting&quot;</li>
+</ul>
+<hr>
+<h2>Section 1: Market Opportunity (TAM / SAM / SOM)</h2>
+<p><strong>Headline:</strong> &quot;The Market Set-Up&quot;</p>
+<h3>Total Addressable Market (TAM)</h3>
+<p><strong>Definition:</strong> The total market opportunity if we captured 0% of it.</p>
+<p><strong>TAM Calculation:</strong></p>
+<ul>
+<li><strong>Global AI Market (2024):</strong> $196 billion</li>
+<li><strong>ML Infrastructure segment:</strong> 34% of AI spend = $67 billion</li>
+<li><strong>Enterprise ML Ops (our JAM):</strong> 52% of infrastructure = <strong>$35 billion TAM globally</strong></li>
+</ul>
+<p><strong>Market Growth:</strong></p>
+<ul>
+<li>CAGR 2024-2030: <strong>28%</strong> (vs. 14% for general enterprise software)</li>
+<li>By 2030: ML infrastructure becomes larger than database market</li>
+</ul>
+<p><strong>Why Now?</strong></p>
+<ol>
+<li>Enterprises have data but lack ML velocity</li>
+<li>Open-source ML (TensorFlow, PyTorch) created fragmentation—someone needs to package it</li>
+<li>AI regulation (GDPR, SOX) requires explainability—vendor lock-in infrastructure can't provide it</li>
+<li>Every Fortune 500 company is building 2-3 competing ML pipelines (waste)</li>
+</ol>
+<hr>
+<h3>Serviceable Addressable Market (SAM)</h3>
+<p><strong>Definition:</strong> The portion of TAM we can realistically capture.</p>
+<p><strong>SAM Calculation:</strong></p>
+<ul>
+<li>
+<p><strong>Target customer segments:</strong></p>
+<ul>
+<li>Tier 1: Financial services (banking, insurance, capital markets) = $8B</li>
+<li>Tier 2: Healthcare &amp; pharma = $4.5B</li>
+<li>Tier 3: Manufacturing &amp; supply chain = $3.2B</li>
+<li>Tier 4: Retail &amp; e-commerce = $2.1B</li>
+<li>Tier 5: Telecom &amp; utilities = $1.8B</li>
+</ul>
+</li>
+<li>
+<p><strong>Total SAM:</strong> $19.6 billion (56% of TAM)</p>
+</li>
+</ul>
+<p><strong>Why this SAM is defensible:</strong></p>
+<ul>
+<li>Enterprises in these sectors have mission-critical ML needs</li>
+<li>High switching costs (once integrated, hard to rip &amp; replace)</li>
+<li>Strong compliance/regulatory environment (our security story sells)</li>
+</ul>
+<hr>
+<h3>Serviceable Obtainable Market (SOM)</h3>
+<p><strong>Definition:</strong> The portion of SAM we can capture realistically in 5 years.</p>
+<p><strong>SOM Calculation (Conservative):</strong></p>
+<ul>
+<li><strong>Year 5 market share:</strong> 2-3% of SAM (vs. Databricks at 5%, Palantir at 4%)</li>
+<li><strong>SOM in 5 years:</strong> $392-588 million ARR</li>
+</ul>
+<p><strong>How we get there:</strong></p>
+<ul>
+<li>Year 1: Enterprise pilots + POCs in financial services = $800K ARR</li>
+<li>Year 2: Scale to 8-12 customers + use-case expansion = $4.2M ARR</li>
+<li>Year 3: 35-50 customers, $18M ARR</li>
+<li>Year 4: 80-120 customers, $52M ARR</li>
+<li>Year 5: 150-200 customers, <strong>$500M+ ARR</strong></li>
+</ul>
+<hr>
+<h2>Section 2: Business Model</h2>
+<p><strong>Headline:</strong> &quot;How We Make Money&quot;</p>
+<h3>Revenue Streams (Blended Model)</h3>
+<p><strong>Primary 1: SaaS Subscriptions (60% of revenue)</strong></p>
+<p>Three pricing tiers based on data volume + inference requests:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Data/Month</th>
+<th>Requests/Month</th>
+<th>Price</th>
+<th>Typical Customer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starter</strong></td>
+<td>1TB</td>
+<td>1M</td>
+<td>$2,400/mo</td>
+<td>Mid-market (10-50 ML engineers)</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>10TB</td>
+<td>10M</td>
+<td>$18,000/mo</td>
+<td>Enterprise (50-200 engineers)</td>
+</tr>
+<tr>
+<td><strong>Enterprise</strong></td>
+<td>100TB+</td>
+<td>100M+</td>
+<td>Custom</td>
+<td>Fortune 500 (200+ engineers)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unit Economics:</strong></p>
+<ul>
+<li><strong>Gross Margin:</strong> 72% (cloud infra costs: 18%, ops: 10%)</li>
+<li><strong>CAC:</strong> $12,000 (avg sales cycle: 6 months)</li>
+<li><strong>LTV:</strong> $180,000 (3-year average customer lifetime)</li>
+<li><strong>LTV/CAC:</strong> 15x (healthy benchmark: &gt;3x)</li>
+<li><strong>Net Revenue Retention:</strong> 125% (customers expand as they scale)</li>
+</ul>
+<hr>
+<p><strong>Primary 2: Professional Services (25% of revenue)</strong></p>
+<ul>
+<li>Custom model development: $50-150K per engagement</li>
+<li>Deployment &amp; integration: $25-75K per customer</li>
+<li>Training &amp; enablement: $10-30K per customer</li>
+</ul>
+<p><strong>Margin:</strong> 65% (engineering costs)</p>
+<hr>
+<p><strong>Primary 3: Enterprise Support &amp; SLAs (15% of revenue)</strong></p>
+<ul>
+<li>Premium support tier: 15% of subscription (99.99% SLA, 1h response time)</li>
+<li>Custom SLAs: 20% of subscription (99.999% SLA + dedicated engineer)</li>
+</ul>
+<p><strong>Margin:</strong> 85% (mostly fixed costs)</p>
+<hr>
+<h3>Customer Acquisition Strategy</h3>
+<p><strong>Phase 1 (Year 1): High-Touch Sales</strong></p>
+<ul>
+<li>Target: Top 20 Fortune 500 companies in finance + healthcare</li>
+<li>Sales approach: Executive introductions → 2-week POC → contract</li>
+<li>Expected conversion: 4-6 customers</li>
+</ul>
+<p><strong>Phase 2 (Year 2-3): Vertical Specialization</strong></p>
+<ul>
+<li>Build industry solutions (banking module, pharma module, etc.)</li>
+<li>Create white-labeled templates—reduce sales friction</li>
+<li>Expected: 15-25 new customers/year</li>
+</ul>
+<p><strong>Phase 3 (Year 4-5): Platform + Marketplace</strong></p>
+<ul>
+<li>Enable customer ISVs to build on Attentix</li>
+<li>Revenue share: 30% to ISVs, 70% to Attentix</li>
+<li>Accelerates adoption in adjacent verticals</li>
+</ul>
+<hr>
+<h2>Section 3: Traction &amp; Milestones</h2>
+<p><strong>Headline:</strong> &quot;What We've Built So Far&quot;</p>
+<h3>Timeline</h3>
+<p><strong>Q4 2024: MVP Alpha</strong></p>
+<ul>
+<li>✅ Core attention engine operational</li>
+<li>✅ Single 50K row test dataset processed</li>
+<li>✅ Internal team of 3 using for daily work</li>
+</ul>
+<p><strong>Q1 2025: Closed Beta</strong></p>
+<ul>
+<li>✅ 2 enterprise pilots (financial services + manufacturing)</li>
+<li>✅ Results: 88-92% prediction accuracy on real customer data</li>
+<li>✅ 10K+ daily inference requests processed</li>
+<li>✅ First patent application filed</li>
+</ul>
+<p><strong>Q2 2025: Product-Market Fit Validation</strong></p>
+<ul>
+<li>✅ 4 pilot customers → 2 converting to paying ($280K ARR)</li>
+<li>✅ NPS Score: 57 (target: &gt;50)</li>
+<li>✅ GitHub open-source release (5K stars in first month)</li>
+<li>✅ TechCrunch feature article</li>
+</ul>
+<p><strong>Q3 2025: Go-to-Market</strong></p>
+<ul>
+<li>🔄 6 enterprise contracts signed (projected $1.2M ARR by year-end)</li>
+<li>🔄 Sales team hired (VP Sales + 2 AEs)</li>
+<li>🔄 Third patent application</li>
+</ul>
+<p><strong>(Projected) Q4 2025:</strong></p>
+<ul>
+<li>Target: $800K ARR</li>
+<li>8-10 paying customers</li>
+<li>Series A conversations begin</li>
+</ul>
+<hr>
+<h3>Key Metrics (Current State)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Benchmark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paying Customers</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Monthly Recurring Revenue</td>
+<td>$280K</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Annual Run Rate</td>
+<td>$800K (projected)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Net Revenue Retention</td>
+<td>120%</td>
+<td>Best-in-class: 120%+</td>
+</tr>
+<tr>
+<td>Gross Margin</td>
+<td>72%</td>
+<td>SaaS avg: 60%</td>
+</tr>
+<tr>
+<td>Prediction Accuracy</td>
+<td>92%</td>
+<td>Competitors: 67-78%</td>
+</tr>
+<tr>
+<td>Customer Acquisition Cost</td>
+<td>$12K</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Lifetime Value (3-year)</td>
+<td>$180K</td>
+<td>-</td>
+</tr>
+<tr>
+<td>LTV/CAC Ratio</td>
+<td>15x</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Time to Revenue (MVP → $1M ARR)</td>
+<td>18 months</td>
+<td>Databricks: 24 months</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Section 4: Use of Proceeds</h2>
+<p><strong>Headline:</strong> &quot;How We'll Deploy Your Capital&quot;</p>
+<p><strong>Total Raise:</strong> $X Seed (let's say $8-12M for this example)</p>
+<h3>Allocation Breakdown</h3>
+<p><strong>Engineering &amp; Product (40% = $3.2-4.8M)</strong></p>
+<ul>
+<li>Hire 4 senior engineers (Transformers, CUDA, infra experts)</li>
+<li>Build compliance/security layer (SOC2, HIPAA)</li>
+<li>Develop industry-specific modules (banking, healthcare)</li>
+</ul>
+<p><strong>Go-to-Market (30% = $2.4-3.6M)</strong></p>
+<ul>
+<li>Hire VP Sales + 3 enterprise AEs</li>
+<li>Marketing: Content, events, developer relations</li>
+<li>Sales enablement: Case studies, ROI calculator, pitch materials</li>
+</ul>
+<p><strong>Operations (20% = $1.6-2.4M)</strong></p>
+<ul>
+<li>Cloud infrastructure (AWS credits, training, support)</li>
+<li>HR / recruiting for 6-8 hires total</li>
+<li>Finance, legal, insurance</li>
+</ul>
+<p><strong>Research &amp; Development (10% = $0.8-1.2M)</strong></p>
+<ul>
+<li>Patent prosecution (3 filings pending)</li>
+<li>R&amp;D into federated learning, on-device inference</li>
+<li>Academic partnerships</li>
+</ul>
+<hr>
+<h3>Hiring Plan</h3>
+<pre><code>Now:     2 founders + 3 engineers = 5
++6 mo:   +4 engineers + 1 PM = 10
++12 mo:  +2 sales + 1 marketing + 1 ops = 14
++18 mo:  +2 more engineers + customer success = 18
++24 mo:  +2 enterprise AEs = 20
+</code></pre>
+<hr>
+<h2>Section 5: The Ask</h2>
+<p><strong>Headline:</strong> &quot;We're Raising a $X Seed Round&quot;</p>
+<h3>Investment Details</h3>
+<ul>
+<li><strong>Amount:</strong> $8-12 million USD</li>
+<li><strong>Type:</strong> SAFE or Priced Seed (preferred shares)</li>
+<li><strong>Use of Proceeds:</strong> Detailed above</li>
+<li><strong>Timeline:</strong> Closing within 90 days</li>
+</ul>
+<h3>Why Now?</h3>
+<ol>
+<li><strong>Product-Market Fit:</strong> 2 paying customers (from closed beta), strong NPS</li>
+<li><strong>Macro Tailwinds:</strong> Enterprise AI regulation + budget reallocation toward ROI-driven projects</li>
+<li><strong>Competitive Window:</strong> 18-24 months before Big Tech (Google, AWS, Azure) optimizes their ML platforms for this use case</li>
+<li><strong>Team Readiness:</strong> Founders + core 3-engineer team proven together on 2 previous exits</li>
+</ol>
+<h3>Ask for Investors</h3>
+<p><strong>Pre-Money Valuation:</strong> $XX million (14-20x funding multiple, typical for Series Seed AI infrastructure)</p>
+<p><strong>Use of Capital:</strong> Aggressive but sustainable hiring to reach $X-YM ARR by Series A (24 months)</p>
+<hr>
+<h2>Section 6: The Team</h2>
+<p><strong>Note:</strong> Team section will be added when ready. Currently showing company-level credentials:</p>
+<ul>
+<li><strong>Founder 1:</strong> Former engineering lead at [Previous ML Platform], 8 years in ML infrastructure</li>
+<li><strong>Founder 2:</strong> Previously head of enterprise sales at [SaaS company], $50M+ book in career</li>
+<li><strong>Founder 3:</strong> PhD in computer vision, 40+ publications, 2 previous exits</li>
+</ul>
+<p><strong>Advisors:</strong></p>
+<ul>
+<li>Former CTO at Goldman Sachs (fintech domain expertise)</li>
+<li>VP Engineering at Databricks (enterprise ML best practices)</li>
+<li>General Partner at Tier-1 VC (market insights)</li>
+</ul>
+<p><em>Full team bios and photos will be available upon request.</em></p>
+<hr>
+<h2>Section 7: Investor FAQs</h2>
+<p><strong>Headline:</strong> &quot;Common Questions&quot;</p>
+<h3>Q: Who are your competitors?</h3>
+<p><strong>A:</strong> Incumbent enterprise data platforms (Databricks, Palantir) + cloud vendors' native ML (SageMaker, Vertex AI). But none solve the interpretability + speed problem simultaneously. Our unfair advantage: explainable predictions at &lt;100ms.</p>
+<h3>Q: What's your defensibility?</h3>
+<p><strong>A:</strong> 3 patents pending (attention + privacy + ensemble methods) + switching costs (once integrated into customer pipelines, very hard to rip out).</p>
+<h3>Q: How do you go to market?</h3>
+<p><strong>A:</strong> High-touch enterprise sales (6-month POC → contract) Year 1. By Year 3, vertical specialization + self-serve option for SMBs.</p>
+<h3>Q: What's your path to revenue?</h3>
+<p><strong>A:</strong> SaaS subscription ($2.4K-18K+/mo) + services (10-15% of revenue) + premium support (5-10%).</p>
+<h3>Q: How do you differentiate from cloud vendors?</h3>
+<p><strong>A:</strong> They own the stack; we build the specialized layer on top. Neutral cloud stance = no vendor lock-in. Customers trust us because we have no incentive to lock them in.</p>
+<hr>
+<h2>Section 8: Investment Highlights (Summary)</h2>
+<p><strong>One-Pager Summary:</strong></p>
+<p>✅ <strong>Large Market:</strong> $35B enterprise ML infrastructure market, 28% CAGR</p>
+<p>✅ <strong>Proven PMF:</strong> 2 paying customers, $280K MRR, 120% NRR, 92% prediction accuracy</p>
+<p>✅ <strong>Defensible Tech:</strong> 3 patents pending, proprietary attention architecture, 73% model compression breakthrough</p>
+<p>✅ <strong>Experienced Team:</strong> 3 founders with 2 exits + domain expertise</p>
+<p>✅ <strong>Efficient Unit Economics:</strong> 15x LTV/CAC (best-in-class SaaS is 3-5x), 72% gross margin</p>
+<p>✅ <strong>Clear Path to $X0M ARR:</strong> $800K → $1.2M → $4M → $15M+ in 5 years</p>
+<hr>
+<h2>Section 9: CTA — Schedule a Meeting</h2>
+<p><strong>Headline:</strong> &quot;Let's Talk&quot;</p>
+<h3>For Investors:</h3>
+<ul>
+<li>
+<p><strong>Schedule 30-min Technical Deep-Dive:</strong></p>
+<ul>
+<li>How the attention architecture works</li>
+<li>Live demo on your data (if you bring it)</li>
+<li>Benchmark vs. competitors</li>
+</ul>
+</li>
+<li>
+<p><strong>Calendly Link:</strong> [Embed calendar]</p>
+</li>
+<li>
+<p><strong>Alternative:</strong> Email intro-capital@attentix.ai</p>
+</li>
+</ul>
+<h3>For Partners &amp; Integrations:</h3>
+<ul>
+<li><strong>Email:</strong> partnerships@attentix.ai</li>
+</ul>
+<hr>
+<h2>Footer</h2>
+<ul>
+<li>About Attentix</li>
+<li>Technology Deep-Dive</li>
+<li>Contact Us</li>
+<li>&quot;© 2026 Attentix AI. Raising Series Seed.&quot;</li>
+</ul>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Color Scheme:</strong> Precision Noir with accent on data visualizations</li>
+<li><strong>Data Visuals:</strong>
+<ul>
+<li>TAM/SAM/SOM stacked bar chart</li>
+<li>Revenue projections line graph (Year 1-5)</li>
+<li>Use of proceeds pie chart</li>
+<li>Customer acquisition curve</li>
+</ul>
+</li>
+<li><strong>Typography:</strong> Professional, clear, data-focused</li>
+<li><strong>Responsive:</strong> Optimized for iPad (investor viewing at meetings)</li>
+<li><strong>Print-Friendly:</strong> Designed to work in PDF export</li>
+<li><strong>Gating:</strong> Pitch deck PDF requires email capture</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

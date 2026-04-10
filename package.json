@@ -4,9 +4,9 @@
   "description": "Attentix AI enterprise landing page",
   "main": "index.js",
   "scripts": {
-    "build": "stitch build",
-    "dev": "stitch dev",
-    "start": "stitch start"
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve"
   },
   "keywords": [
     "landing-page",
@@ -18,7 +18,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "stitch": "^1.0.0"
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^13.0.1"
   },
   "engines": {
     "node": ">=14.0.0"

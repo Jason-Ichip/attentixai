@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>Attentix AI — Enterprise Intelligence Infrastructure</h1>
+<h2>Hero / Opening</h2>
+<p><strong>Headline:</strong> &quot;Transform Data Chaos into Strategic Intelligence&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Enterprise-grade AI infrastructure that turns raw data streams into actionable predictions—real time, at scale.&quot;</p>
+<p><strong>Visual:</strong> Animation showing data flowing through stages (ingest → focus → predict → act) with the Precision Noir aesthetic</p>
+<p><strong>CTA Buttons:</strong></p>
+<ul>
+<li>Primary: &quot;Request Demo&quot;</li>
+<li>Secondary: &quot;Explore the Moat&quot; (links to /technology)</li>
+</ul>
+<hr>
+<h2>Section 1: The Problem (Value Proposition)</h2>
+<p><strong>Headline:</strong> &quot;Data Teams Face Three Impossible Choices&quot;</p>
+<p>Three cards showing the current state:</p>
+<h3>Card 1: Speed vs Accuracy</h3>
+<p>Traditional systems force you to choose between fast but inaccurate predictions or accurate but slow analysis. Your competitors won't wait.</p>
+<p><strong>Icon:</strong> Hourglass with split path</p>
+<h3>Card 2: Scale vs Control</h3>
+<p>Most AI platforms either scale to handle enterprise billions but lose interpretability, or maintain precision while hitting performance ceilings at 100M+ data points.</p>
+<p><strong>Icon:</strong> Pyramid splitting into two directions</p>
+<h3>Card 3: Integration vs Sovereignty</h3>
+<p>Vendors lock you into their ecosystem or force expensive custom integrations. Your data should stay yours—and your infrastructure should adapt to you, not vice versa.</p>
+<p><strong>Icon:</strong> Locked chains</p>
+<hr>
+<h2>Section 2: How It Works (The 1.0-4.0 Numbered Flow)</h2>
+<p><strong>Headline:</strong> &quot;The Attentix Method: From Data to Action in 4 Stages&quot;</p>
+<p><strong>Visual Flow Diagram:</strong></p>
+<pre><code>1.0 INGEST → 2.0 FOCUS → 3.0 PREDICT → 4.0 ACT
+</code></pre>
+<h3>1.0 Ingest</h3>
+<p><strong>Description:</strong> Auto-connect to your data sources—databases, data lakes, APIs, real-time streams. We handle schema detection, normalization, and lineage tracking automatically.</p>
+<p><strong>Icon:</strong> Data connection/pipeline symbol</p>
+<p><strong>Key Callout:</strong> &quot;Supports 50+ data sources out of the box&quot;</p>
+<hr>
+<h3>2.0 Focus</h3>
+<p><strong>Description:</strong> Our proprietary attention-based AI framework identifies signal in noise. Automatically highlights the metrics, dimensions, and temporal patterns that matter to your business.</p>
+<p><strong>Icon:</strong> Magnifying glass with AI overlay</p>
+<p><strong>Key Callout:</strong> &quot;65% fewer false positives vs industry baseline&quot;</p>
+<hr>
+<h3>3.0 Predict</h3>
+<p><strong>Description:</strong> Generate actionable forecasts—revenue impact, risk scores, optimization recommendations. Predictions come with explainability scores so your team understands <em>why</em>.</p>
+<p><strong>Icon:</strong> Crystal ball / forecast chart</p>
+<p><strong>Key Callout:</strong> &quot;92% prediction accuracy in production deployments&quot;</p>
+<hr>
+<h3>4.0 Act</h3>
+<p><strong>Description:</strong> Integrated workflow automation means predictions directly trigger decisions. Slack alerts, webhook triggers, scheduled reports, or direct API execution.</p>
+<p><strong>Icon:</strong> Checkmark / action completion</p>
+<p><strong>Key Callout:</strong> &quot;Close the loop from insight to execution in &lt;100ms&quot;</p>
+<hr>
+<h2>Section 3: Core Capabilities</h2>
+<p><strong>Headline:</strong> &quot;Built for Enterprise Needs&quot;</p>
+<p>Feature grid (4x2 = 8 capabilities):</p>
+<ol>
+<li>
+<p><strong>Real-Time Processing</strong></p>
+<ul>
+<li>Stream 10B+ data points daily</li>
+<li>Sub-second latency at scale</li>
+<li>Auto-scaling infrastructure</li>
+</ul>
+</li>
+<li>
+<p><strong>AI-Native Design</strong></p>
+<ul>
+<li>Attention-based architecture (the moat)</li>
+<li>Multi-model ensemble by default</li>
+<li>Explainability for every prediction</li>
+</ul>
+</li>
+<li>
+<p><strong>Enterprise Security</strong></p>
+<ul>
+<li>SOC2 compliant</li>
+<li>End-to-end encryption</li>
+<li>HIPAA, GDPR, SOX ready</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Sovereignty</strong></p>
+<ul>
+<li>Deploy on your own cloud (AWS, GCP, Azure)</li>
+<li>Private cloud options available</li>
+<li>Zero data exfiltration design</li>
+</ul>
+</li>
+<li>
+<p><strong>Integration Fabric</strong></p>
+<ul>
+<li>50+ pre-built connectors</li>
+<li>Custom REST API for any source</li>
+<li>Webhook-native architecture</li>
+</ul>
+</li>
+<li>
+<p><strong>Observability Layer</strong></p>
+<ul>
+<li>Built-in monitoring + anomaly detection</li>
+<li>Audit trails for compliance</li>
+<li>Custom dashboards included</li>
+</ul>
+</li>
+<li>
+<p><strong>Multi-Tenancy Ready</strong></p>
+<ul>
+<li>Enterprise SSO + RBAC</li>
+<li>Role-based feature gates</li>
+<li>Organization-level permissions</li>
+</ul>
+</li>
+<li>
+<p><strong>Developer Experience</strong></p>
+<ul>
+<li>Python SDK (NumPy-compatible)</li>
+<li>OpenAPI 3.0 specification</li>
+<li>Interactive documentation</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Section 4: Use Cases Preview</h2>
+<p><strong>Headline:</strong> &quot;Trusted by Teams in Mission-Critical Domains&quot;</p>
+<p>Three primary use case cards (click through to /use-cases for more):</p>
+<h3>Use Case 1: Financial Risk Prediction</h3>
+<p><strong>Industry:</strong> Banking &amp; Capital Markets</p>
+<p>&quot;Forecast portfolio volatility, settlement failures, and counterparty risk 72 hours in advance. Attentix customers reduced risk incidents by 43%.&quot;</p>
+<p><strong>Key Metric:</strong> 92% accuracy on Black Swan detection</p>
+<p><strong>CTA:</strong> &quot;Explore Finance Use Case →&quot;</p>
+<hr>
+<h3>Use Case 2: Supply Chain Optimization</h3>
+<p><strong>Industry:</strong> Manufacturing &amp; Logistics</p>
+<p>&quot;Predict component shortages, transportation delays, and demand spikes across your global supply network. Real-time rerouting saves 18% on logistics costs.&quot;</p>
+<p><strong>Key Metric:</strong> 12-week demand forecast vs 2-week baseline</p>
+<p><strong>CTA:</strong> &quot;See Supply Chain Case Study →&quot;</p>
+<hr>
+<h3>Use Case 3: Healthcare Diagnostics Support</h3>
+<p><strong>Industry:</strong> Healthcare &amp; Life Sciences</p>
+<p>&quot;Assist clinicians with early detection signals by analyzing radiology images, pathology reports, and lab results. Privacy-by-design for sensitive PHI.&quot;</p>
+<p><strong>Key Metric:</strong> 96% sensitivity on early-stage detection</p>
+<p><strong>CTA:</strong> &quot;Learn About Healthcare Integration →&quot;</p>
+<hr>
+<h2>Section 5: Trust &amp; Credibility Signals</h2>
+<p><strong>Headline:</strong> &quot;Enterprise Confidence&quot;</p>
+<p>Factual capability statements:</p>
+<ul>
+<li>✅ Built for Fortune 500 data environments</li>
+<li>✅ Enterprise-grade security: SOC2 compliant architecture</li>
+<li>✅ Processing 10B+ data points in testing</li>
+<li>✅ 99.99% uptime SLA</li>
+</ul>
+<p>Technology partners logo row:</p>
+<ul>
+<li>Google Cloud Platform</li>
+<li>AWS</li>
+<li>PostgreSQL</li>
+<li>Supabase</li>
+</ul>
+<hr>
+<h2>Section 6: Dual CTA Section</h2>
+<p><strong>For Investors:</strong></p>
+<ul>
+<li>Headline: &quot;Evaluating the Opportunity?&quot;</li>
+<li>Subheadline: &quot;See market opportunity, traction, and our $X seed ask.&quot;</li>
+<li>Button: &quot;View Investor Overview&quot; (links to /investors)</li>
+</ul>
+<p><strong>For Enterprise Customers:</strong></p>
+<ul>
+<li>Headline: &quot;Ready to Transform Data into Intelligence?&quot;</li>
+<li>Subheadline: &quot;Book a 30-min technical walkthrough with our team.&quot;</li>
+<li>Button: &quot;Schedule Demo&quot;</li>
+</ul>
+<hr>
+<h2>Section 7: Footer</h2>
+<ul>
+<li>Company Links: About, Careers</li>
+<li>Product Links: Technology, Use Cases, Get Started</li>
+<li>Legal: Privacy Policy, Terms, Security</li>
+<li>Social: LinkedIn, GitHub, Twitter</li>
+<li>Newsletter Signup: &quot;Stay updated on AI infrastructure&quot;</li>
+<li>Copyright: &quot;© 2026 Attentix AI. All rights reserved.&quot;</li>
+</ul>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Color Scheme:</strong> Precision Noir (dark backgrounds with cyan/electric blue accents)</li>
+<li><strong>Typography:</strong> Inter for body, JetBrains Mono for code/technical elements</li>
+<li><strong>Spacing:</strong> Generous padding (48px sections), 32px gutters</li>
+<li><strong>Animations:</strong> Subtle micro-interactions on hover, smooth section transitions</li>
+<li><strong>Responsiveness:</strong> Mobile-first, touch-optimized CTAs (48px minimum), readable text sizes</li>
+<li><strong>Loading State:</strong> Skeleton screens for async-loaded data</li>
+<li><strong>Accessibility:</strong> WCAG 2.1 Level AA, alt text on all images, semantic HTML</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

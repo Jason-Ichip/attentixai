@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>Technology Deep-Dive — The Moat</h1>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong> &quot;The Architecture That Makes Predictions <em>Actually Actionable</em>&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Why traditional ML infrastructure fails at enterprise scale—and how Attentix's attention-based framework solves it.&quot;</p>
+<p><strong>Visual:</strong> Technical architecture diagram showing data flow through attention mechanisms</p>
+<p><strong>CTA:</strong> &quot;Download Architecture Whitepaper&quot; (gated PDF)</p>
+<hr>
+<h2>Section 1: The Problem Solved (The Moat Introduction)</h2>
+<p><strong>Headline:</strong> &quot;Why Standard ML Pipelines Break at Enterprise Scale&quot;</p>
+<h3>Problem 1: The Accuracy-Latency Trade-off</h3>
+<p>Traditional deep learning trades speed for accuracy. You pick your poison: slow inference with high accuracy OR fast inference with degraded predictions. Enterprise decisions can't wait 30 seconds, but they also can't accept wrong.</p>
+<p><strong>Attentix Solution:</strong> Attention-based inference reduces unnecessary computation paths. We achieve 92% accuracy in &lt;100ms by learning which features matter in context.</p>
+<p><strong>Technical Callout:</strong> &quot;Dynamic feature pruning cuts model complexity by 73% without accuracy loss&quot;</p>
+<hr>
+<h3>Problem 2: Explainability Debt</h3>
+<p>Black-box models mean your team can't trust predictions. Board members ask &quot;why did the system recommend X?&quot; and ML teams have no answer. Mission-critical decisions require transparency.</p>
+<p><strong>Attentix Solution:</strong> Attention weights are intrinsically interpretable. Every prediction includes a visual attention map showing exactly which data points drove the forecast.</p>
+<p><strong>Technical Callout:</strong> &quot;100% prediction traceability—link any forecast to source data&quot;</p>
+<hr>
+<h3>Problem 3: Custom Integration Hell</h3>
+<p>Every enterprise has a unique data topology. Existing ML platforms force you into rigid architectures or require months of custom engineering. Time-to-value collapses.</p>
+<p><strong>Attentix Solution:</strong> Modular, composable architecture. Swap components (encoders, attention mechanisms, decoders) to match your data shape without retraining.</p>
+<p><strong>Technical Callout:</strong> &quot;Deploy new use cases in days, not months&quot;</p>
+<hr>
+<h2>Section 2: Core Architecture Technical Deep-Dive</h2>
+<p><strong>Headline:</strong> &quot;The Attention-First Framework&quot;</p>
+<h3>Architecture Diagram</h3>
+<p>(Visual: Data ingestion → Feature engineering → Multi-head attention layer → Prediction decoder → Output + Attention weights)</p>
+<hr>
+<h3>2.1 The Ingestion Layer</h3>
+<p><strong>Purpose:</strong> Handle heterogeneous data at enterprise scale</p>
+<ul>
+<li><strong>Multi-source federation:</strong> Unified abstraction over databases (PostgreSQL, Snowflake, BigQuery), data lakes (S3, GCS), streams (Kafka, Kinesis)</li>
+<li><strong>Schema inference:</strong> Automatic type detection, missing value imputation, categorical encoding</li>
+<li><strong>Incremental updates:</strong> Only process delta changes; rebuild indexes on-demand</li>
+<li><strong>Lineage tracking:</strong> Know the provenance of every data point (GDPR compliance built-in)</li>
+</ul>
+<p><strong>Performance Specs:</strong></p>
+<ul>
+<li>✓ Linearly scalable to 10B+ daily records</li>
+<li>✓ Automatic sharding and partitioning</li>
+<li>✓ Configurable consistency levels (eventual ↔ strong)</li>
+</ul>
+<hr>
+<h3>2.2 The Feature Engineering Pipeline</h3>
+<p><strong>Purpose:</strong> Automatically extract signals from raw data</p>
+<p><strong>Traditional ML:</strong> Manual feature engineering (80% of engineering time). Brittle, domain-specific, hard to generalize.</p>
+<p><strong>Attentix ML:</strong> Self-supervised learning + learnable embeddings</p>
+<ul>
+<li><strong>Automated feature discovery:</strong> Time-series decomposition, Fourier transforms, wavelet analysis—all automatic</li>
+<li><strong>Learned embeddings:</strong> Neural networks learn optimal representations for your data (no manual feature tuning)</li>
+<li><strong>Domain-aware encoding:</strong> Categorical embeddings, temporal positional encodings, hierarchical embeddings for dimensional data</li>
+<li><strong>Feature interaction modeling:</strong> Learns cross-feature dependencies automatically</li>
+</ul>
+<p><strong>Research Foundation:</strong> Built on Transformer architectures (proven in NLP; adapted for time-series + structured data)</p>
+<hr>
+<h3>2.3 The Multi-Head Attention Mechanism (The Core Moat)</h3>
+<p><strong>Purpose:</strong> Learn which features matter in context; discard noise</p>
+<p><strong>Why it's proprietary:</strong></p>
+<p>Traditional models must see all features to decide. Attentix uses dynamic attention masks to:</p>
+<ol>
+<li><strong>Attend to relevant features only</strong> — For predicting revenue, maybe retail locations matter but not IT budget</li>
+<li><strong>Temporal attention</strong> — Recent data &gt; ancient data (learnable decay)</li>
+<li><strong>Cross-dimensional attention</strong> — Understand relationships between different entities (e.g., &quot;when market cap rises, demand usually follows within 3 days&quot;)</li>
+</ol>
+<p><strong>Multi-head design:</strong></p>
+<ul>
+<li>Head 1: <strong>Temporal dependencies</strong> (what time patterns matter?)</li>
+<li>Head 2: <strong>Cross-dimensional patterns</strong> (what features correlate?)</li>
+<li>Head 3: <strong>Hierarchical relationships</strong> (parent-child entity interactions)</li>
+<li>Head 4-8: <strong>Learned task-specific patterns</strong> (domain adaptation)</li>
+</ul>
+<p><strong>Explainability:</strong></p>
+<ul>
+<li>Each attention head produces a visualization: heat map showing which features contributed to each prediction</li>
+<li>Teams see not just &quot;revenue = $XX&quot; but &quot;revenue forecast driven by: 40% lead volume, 30% sales velocity, 20% market seasonality&quot;</li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul>
+<li><strong>Accuracy:</strong> 92% on held-out test sets (industry baseline: 67-78%)</li>
+<li><strong>Inference latency:</strong> &lt;100ms for 50K-dimensional data</li>
+<li><strong>Memory efficiency:</strong> 3-8x smaller models than equivalent transformer NLP baselines</li>
+</ul>
+<hr>
+<h3>2.4 The Prediction Decoder</h3>
+<p><strong>Purpose:</strong> Convert attention-weighted features into actionable forecasts</p>
+<p>Two parallel paths:</p>
+<p><strong>Path A: Continuous Forecasts</strong></p>
+<ul>
+<li>Regression outputs (revenue, demand, stock price)</li>
+<li>Confidence intervals (uncertainty quantification)</li>
+<li>Multi-horizon predictions (1-week, 1-month, 1-quarter ahead)</li>
+</ul>
+<p><strong>Path B: Classification Outputs</strong></p>
+<ul>
+<li>Risk scores (anomaly? yes/no + probability)</li>
+<li>Decisions (recommend A, B, or C)</li>
+<li>Confidence + explanations on all branches</li>
+</ul>
+<p><strong>Uncertainty Estimation:</strong></p>
+<ul>
+<li>Bayesian dropout for epistemic uncertainty</li>
+<li>Heteroscedastic output for aleatoric uncertainty</li>
+<li>Calibrated confidence intervals (95% CI actually contains true value 95% of the time)</li>
+</ul>
+<hr>
+<h3>2.5 The Action Orchestration Layer</h3>
+<p><strong>Purpose:</strong> Close the loop from prediction to execution</p>
+<ul>
+<li><strong>Real-time webhooks:</strong> Pre-configured triggers (&quot;if risk score &gt; 0.8, send Slack alert + trigger audit workflow&quot;)</li>
+<li><strong>Scheduled actions:</strong> Daily/hourly batch jobs that consume predictions</li>
+<li><strong>API-first design:</strong> Prediction scores fed directly to your business logic</li>
+<li><strong>Workflow templates:</strong> Pre-built for common scenarios (revenue alerts, supply chain rerouting, fraud flagging)</li>
+</ul>
+<p><strong>Latency:</strong> Prediction to action in &lt;200ms (including network overhead)</p>
+<hr>
+<h2>Section 3: Data Processing Pipeline</h2>
+<p><strong>Headline:</strong> &quot;Processing 10B+ Data Points Daily—Efficiently&quot;</p>
+<h3>3.1 Ingestion Pipeline</h3>
+<ul>
+<li>SSS parallel ingestion from multiple sources</li>
+<li>Automatic batching and buffering (configurable 10-1K row blocks)</li>
+<li>Backpressure handling for slow readers</li>
+<li>Dead-letter queues for malformed records</li>
+</ul>
+<h3>3.2 Transformation Pipeline</h3>
+<ul>
+<li>Distributed compute (Spark-compatible; runs on Kubernetes, Databricks, or Ray)</li>
+<li>Idempotent transforms (safe to replay from checkpoint)</li>
+<li>Schema validation on ingress + egress</li>
+<li>Automatic rollback on validation failures</li>
+</ul>
+<h3>3.3 Feature Store Integration</h3>
+<ul>
+<li>Materialize features to low-latency cache (Redis/DynamoDB)</li>
+<li>Online + offline consistency</li>
+<li>Point-in-time correct joins (no data leakage)</li>
+<li>Automatic feature deprecation workflow</li>
+</ul>
+<h3>3.4 Model Serving Layer</h3>
+<ul>
+<li>Multi-model serving (A/B test champion vs challenger)</li>
+<li>Canary deployments with auto-rollback</li>
+<li>Model versioning with feature compatibility checks</li>
+<li>Shadow mode (score silently before switching to live)</li>
+</ul>
+<hr>
+<h2>Section 4: AI Models Framework</h2>
+<p><strong>Headline:</strong> &quot;Multi-Model Ensemble by Default&quot;</p>
+<h3>Why Ensemble?</h3>
+<p>Single models are brittle. Attentix uses ensemble methods to:</p>
+<ul>
+<li>Reduce variance (more stable predictions)</li>
+<li>Handle domain shift (one model sees new pattern → others compensate)</li>
+<li>Enable interpretability (disagree signals anomalies)</li>
+</ul>
+<h3>Ensemble Architecture</h3>
+<pre><code>Model A (Attention-based) ───┐
+Model B (Gradient Boosted) ───→ Weighted Ensemble → Final Prediction
+Model C (RNN-LSTM) ────────────┘    + Explanation
+</code></pre>
+<p><strong>Model A: Attention-Based (Primary)</strong></p>
+<ul>
+<li>Interpretable, handles heterogeneous data</li>
+<li>Fast inference</li>
+</ul>
+<p><strong>Model B: XGBoost (Secondary)</strong></p>
+<ul>
+<li>Proven on tabular data</li>
+<li>Feature importance via SHAP</li>
+</ul>
+<p><strong>Model C: RNN-LSTM (Tertiary)</strong></p>
+<ul>
+<li>Temporal pattern capture</li>
+<li>Sequence generalization</li>
+</ul>
+<p><strong>Voting Mechanism:</strong></p>
+<ul>
+<li>Weighted majority voting (attention model weighted 60%, others 20% each)</li>
+<li>Diversity bonus: predictions that disagree signal data drift or anomalies</li>
+</ul>
+<hr>
+<h2>Section 5: Security &amp; Compliance Architecture</h2>
+<p><strong>Headline:</strong> &quot;Enterprise-Grade Security by Design&quot;</p>
+<h3>5.1 Data Isolation</h3>
+<ul>
+<li><strong>Tenant separation:</strong> Cryptographic key per customer (no shared DBs)</li>
+<li><strong>Network isolation:</strong> VPC endpoints, private subnets</li>
+<li><strong>Encryption in transit:</strong> TLS 1.3 required</li>
+<li><strong>Encryption at rest:</strong> AES-256-GCM</li>
+</ul>
+<h3>5.2 Access Control</h3>
+<ul>
+<li><strong>RBAC:</strong> Role-based access with granular permissions (data + models + reports)</li>
+<li><strong>SAML/OIDC:</strong> Enterprise SSO integration</li>
+<li><strong>API key rotation:</strong> Automatic key expiry and rotation policies</li>
+<li><strong>Audit logging:</strong> Every query, model access, configuration change logged immutably</li>
+</ul>
+<h3>5.3 Compliance Frameworks</h3>
+<ul>
+<li><strong>SOC2 Type II:</strong> Audited annually</li>
+<li><strong>HIPAA:</strong> PHI handling with encryption + access logging</li>
+<li><strong>GDPR:</strong> Right to deletion, data portability, consent tracking</li>
+<li><strong>SOX:</strong> Financial audit trail, change management</li>
+</ul>
+<h3>5.4 Model Bias &amp; Fairness</h3>
+<ul>
+<li><strong>Fairness audits:</strong> Automated tests for demographic parity, equalized odds</li>
+<li><strong>Bias detection:</strong> Early warning system for distribution shift</li>
+<li><strong>Model cards:</strong> Automated disclosure of model limitations per cohort</li>
+</ul>
+<hr>
+<h2>Section 6: Performance Metrics &amp; Benchmarks</h2>
+<p><strong>Headline:</strong> &quot;Proven Performance at Scale&quot;</p>
+<h3>Request-Level SLAs</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Achieved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P50 latency (inference)</td>
+<td>&lt;50ms</td>
+<td>38ms</td>
+</tr>
+<tr>
+<td>P99 latency (inference)</td>
+<td>&lt;500ms</td>
+<td>287ms</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>99.99%</td>
+<td>99.99%</td>
+</tr>
+<tr>
+<td>Prediction accuracy (held-out)</td>
+<td>&gt;90%</td>
+<td>92.3%</td>
+</tr>
+<tr>
+<td>Model drift detection</td>
+<td>&lt;24h</td>
+<td>12h avg</td>
+</tr>
+</tbody>
+</table>
+<h3>Throughput &amp; Scale</h3>
+<ul>
+<li><strong>Daily data volume:</strong> 10B+ records processed</li>
+<li><strong>Concurrent users:</strong> 5,000+ per cluster</li>
+<li><strong>Inference requests/sec:</strong> 50K+ RPS per pod</li>
+<li><strong>Model retraining:</strong> Continuous online learning (no downtime retrains)</li>
+</ul>
+<h3>Cost Efficiency</h3>
+<ul>
+<li><strong>Infrastructure cost per M predictions:</strong> $0.12 (vs $0.45 industry avg)</li>
+<li><strong>Human engineering time to deploy new model:</strong> &lt;4 hours</li>
+<li><strong>Time to detect and fix model bugs:</strong> &lt;30min</li>
+</ul>
+<hr>
+<h2>Section 7: Patent Status &amp; IP</h2>
+<p><strong>Headline:</strong> &quot;Defensible Technology&quot;</p>
+<h3>Patents Pending (US/EU)</h3>
+<ul>
+<li>Patent 1: &quot;Attention-based feature pruning for enterprise ML&quot; (Filed Jan 2025)</li>
+<li>Patent 2: &quot;Multi-tenant model serving with privacy guarantees&quot; (Filed Mar 2025)</li>
+<li>Patent 3: &quot;Explainable ensemble methods for heterogeneous data&quot; (Filed Apr 2025)</li>
+</ul>
+<p><strong>Trade Secrets:</strong></p>
+<ul>
+<li>Proprietary attention weight optimization algorithm</li>
+<li>Custom CUDA kernels for sub-100ms inference</li>
+<li>Domain-specific model architectures trained on private enterprise datasets</li>
+</ul>
+<hr>
+<h2>Section 8: Roadmap &amp; Future Architecture</h2>
+<p><strong>Headline:</strong> &quot;What's Next&quot;</p>
+<h3>Q3 2025: Federated Learning</h3>
+<ul>
+<li>Train models across multiple customers' data without sharing raw data</li>
+<li>Privacy-preserving model improvements</li>
+</ul>
+<h3>Q4 2025: On-Device Inference</h3>
+<ul>
+<li>Deploy models directly to edge devices (customer laptops, IoT sensors)</li>
+<li>Sub-5ms predictions locally</li>
+</ul>
+<h3>Q1 2026: Multi-Task Learning</h3>
+<ul>
+<li>Single model serves multiple prediction tasks simultaneously</li>
+<li>40% fewer parameters, faster training</li>
+</ul>
+<hr>
+<h2>Section 9: Research &amp; Academic Foundation</h2>
+<p><strong>Headline:</strong> &quot;Built on Published Research&quot;</p>
+<p><strong>Core Inspirations:</strong></p>
+<ul>
+<li>Vaswani et al., &quot;Attention Is All You Need&quot; (2017) — Transformer architecture</li>
+<li>Chen et al., &quot;XGBoost: A Scalable Tree Boosting System&quot; (2016) — Ensemble methods</li>
+<li>Lin et al., &quot;Structured Self-attentive Sentence Embedding&quot; (2017) — Interpretability</li>
+</ul>
+<p><strong>Attentix Innovations:</strong></p>
+<ul>
+<li>Custom attention mechanisms optimized for tabular + temporal data</li>
+<li>Distillation techniques to reduce model size by 73% without accuracy loss</li>
+<li>Online learning framework for continuous model improvement</li>
+</ul>
+<hr>
+<h2>Section 10: CTA for Technical Deep-Dive</h2>
+<p><strong>Headline:</strong> &quot;Ready to Go Deeper?&quot;</p>
+<h3>For CTOs &amp; Technical VCs:</h3>
+<ul>
+<li><strong>Download the Architecture Whitepaper</strong> (gated PDF, 28 pages)
+<ul>
+<li>Full math derivations</li>
+<li>Benchmark code (open source)</li>
+<li>Performance profiling data</li>
+</ul>
+</li>
+</ul>
+<h3>For Engineers &amp; Researchers:</h3>
+<ul>
+<li><strong>GitHub Repo</strong> (limited source, non-commercial license)
+<ul>
+<li>Example notebooks</li>
+<li>Integration patterns</li>
+<li>Community forum</li>
+</ul>
+</li>
+</ul>
+<h3>For Partnership &amp; Integration:</h3>
+<ul>
+<li><strong>Schedule Technical Sync</strong> with our Head of Engineering
+<ul>
+<li>Custom deployment options</li>
+<li>API contract discussions</li>
+<li>SLA negotiation</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Footer</h2>
+<ul>
+<li>&quot;Questions? Email research@attentix.ai&quot;</li>
+<li>Back to Homepage</li>
+<li>View For Investors page</li>
+<li>Contact Sales</li>
+</ul>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Color Scheme:</strong> Precision Noir with code syntax highlighting for technical diagrams</li>
+<li><strong>Typography:</strong> Mono-font for code snippets, serif for mathematical notation (if rendered)</li>
+<li><strong>Visuals:</strong> Architecture diagrams, benchmark charts, attention heatmaps</li>
+<li><strong>Interactivity:</strong> Expandable technical sections (collapse/expand for progressive disclosure)</li>
+<li><strong>Accessibility:</strong> Alt text on all diagrams, semantic HTML for tables</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

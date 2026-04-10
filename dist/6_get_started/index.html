@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>Get Started</h1>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong> &quot;From Zero to AI-Powered Intelligence in Days&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Integration guides, API docs, and real code examples—everything you need to deploy Attentix in your environment.&quot;</p>
+<p><strong>CTA Buttons:</strong></p>
+<ul>
+<li>Primary: &quot;Start 14-Day Free Trial&quot;</li>
+<li>Secondary: &quot;View Full Docs&quot;</li>
+</ul>
+<p><strong>Visual:</strong> Simple terminal/code editor interface showing a quick integration example</p>
+<hr>
+<h2>Section 1: Three Ways to Get Started</h2>
+<p><strong>Headline:</strong> &quot;Pick Your Path&quot;</p>
+<h3>Path 1: Self-Service Evaluation (For Technical Teams)</h3>
+<p><strong>Timeline:</strong> 2-3 hours of hands-on time</p>
+<p><strong>What you'll do:</strong></p>
+<ol>
+<li>Sign up for free trial (no credit card)</li>
+<li>Upload sample CSV or connect to test database</li>
+<li>Walk through 5-minute guided setup</li>
+<li>Configure your first prediction model (UI-based, no coding required)</li>
+<li>See predictions in real-time</li>
+</ol>
+<p><strong>Outcome:</strong> Working proof-of-concept you can show your team</p>
+<p><strong>Best for:</strong> Teams who want to explore independently</p>
+<p><strong>[Start Free Trial →]</strong></p>
+<hr>
+<h3>Path 2: Guided Technical Discovery (For Enterprises)</h3>
+<p><strong>Timeline:</strong> 2-4 weeks (flexible)</p>
+<p><strong>What happens:</strong></p>
+<ol>
+<li><strong>Week 1:</strong> You provide sample data (anonymized, &lt;100 rows). We analyze feasibility.</li>
+<li><strong>Week 2:</strong> Technical deep-dive call (1h). We show how your data would flow through our platform.</li>
+<li><strong>Week 3:</strong> POC deployment in your environment (AWS/GCP/Azure). We handle setup.</li>
+<li><strong>Week 4:</strong> Results review + ROI calculation. Decide to proceed or pause.</li>
+</ol>
+<p><strong>Cost:</strong> Free (funded by Attentix)</p>
+<p><strong>Success metric:</strong> By week 4, you'll know: &quot;Does this solve our problem?&quot;</p>
+<p><strong>Best for:</strong> Organizations evaluating for production use</p>
+<p><strong>[Schedule Discovery Call →]</strong></p>
+<hr>
+<h3>Path 3: White-Glove Onboarding (For Fortune 500)</h3>
+<p><strong>Timeline:</strong> 6-12 weeks (includes data integration, pilot, and go-live)</p>
+<p><strong>What you get:</strong></p>
+<ul>
+<li>Dedicated implementation engineer</li>
+<li>Custom security &amp; compliance review</li>
+<li>Private network deployment (option)</li>
+<li>Executive sponsorship (VP Engineering from Attentix)</li>
+<li>Success guarantees (we share risk)</li>
+</ul>
+<p><strong>Cost:</strong> Starts at $50K for full onboarding</p>
+<p><strong>Best for:</strong> Mission-critical deployments that require hands-on support</p>
+<p><strong>[Contact Sales →]</strong></p>
+<hr>
+<h2>Section 2: Quick-Start Guide (5 Minutes)</h2>
+<p><strong>Headline:</strong> &quot;The Fastest Way to Your First Prediction&quot;</p>
+<h3>Step 1: Create Account &amp; Log In</h3>
+<pre><code>Visit: app.attentix.ai
+Email: your@company.com
+Set password
+Verify email (check inbox)
+</code></pre>
+<p>✅ <strong>Done!</strong> You're now in the dashboard.</p>
+<hr>
+<h3>Step 2: Create Your First Project</h3>
+<ul>
+<li>Click &quot;New Project&quot;</li>
+<li>Name it: &quot;My First Forecast&quot;</li>
+<li>Select industry: &quot;General&quot; (can change later)</li>
+<li>Click &quot;Create&quot;</li>
+</ul>
+<p>✅ <strong>Done!</strong> Empty project ready.</p>
+<hr>
+<h3>Step 3: Upload Data</h3>
+<ul>
+<li>Click &quot;Add Data Source&quot;</li>
+<li>Choose: &quot;Upload CSV&quot; (or connect database)</li>
+<li>Download sample CSV template</li>
+<li>Fill with your data:
+<ul>
+<li>Column 1: Date (YYYY-MM-DD format)</li>
+<li>Column 2: Metric 1 (numeric value)</li>
+<li>Column 3: Metric 2 (numeric value)</li>
+<li>...</li>
+</ul>
+</li>
+<li>Upload and validate</li>
+</ul>
+<p>✅ <strong>Done!</strong> Data ingested.</p>
+<hr>
+<h3>Step 4: Configure Your Model</h3>
+<ul>
+<li>Click &quot;Create Model&quot;</li>
+<li>Choose task: &quot;Forecast&quot; or &quot;Anomaly Detection&quot;</li>
+<li>Select target metric (what to predict)</li>
+<li>Select features (what to use for prediction)</li>
+<li>Click &quot;Auto-Configure&quot; (we handle hyperparameter tuning)</li>
+</ul>
+<p>✅ <strong>Done!</strong> Model training started (takes 2-5 minutes)</p>
+<hr>
+<h3>Step 5: Make Your First Prediction</h3>
+<ul>
+<li>Click &quot;View Results&quot;</li>
+<li>See your predictions in real-time</li>
+<li>Click on any prediction to see the attention heatmap (explains <em>why</em>)</li>
+<li>Download results as CSV</li>
+</ul>
+<p>✅ <strong>Done!</strong> You have predictions with explainability.</p>
+<hr>
+<h2>Section 3: Integration Guide</h2>
+<p><strong>Headline:</strong> &quot;Connect Your Data Sources&quot;</p>
+<h3>Supported Data Sources</h3>
+<p><strong>Databases:</strong></p>
+<ul>
+<li>✅ PostgreSQL</li>
+<li>✅ MySQL</li>
+<li>✅ Snowflake</li>
+<li>✅ BigQuery</li>
+<li>✅ Redshift</li>
+<li>✅ Databricks</li>
+<li>✅ Spark</li>
+</ul>
+<p><strong>Data Lakes:</strong></p>
+<ul>
+<li>✅ S3 (AWS)</li>
+<li>✅ GCS (Google Cloud)</li>
+<li>✅ Azure Blob Storage</li>
+<li>✅ ADLS (Azure Data Lake)</li>
+</ul>
+<p><strong>Streaming:</strong></p>
+<ul>
+<li>✅ Kafka</li>
+<li>✅ AWS Kinesis</li>
+<li>✅ Azure Event Hubs</li>
+<li>✅ Pub/Sub (Google Cloud)</li>
+</ul>
+<p><strong>APIs &amp; Web:</strong></p>
+<ul>
+<li>✅ REST APIs (generic)</li>
+<li>✅ GraphQL APIs</li>
+<li>✅ Third-party integrations (Salesforce, Slack, etc.)</li>
+</ul>
+<p><strong>File Formats:</strong></p>
+<ul>
+<li>✅ CSV, JSON, Parquet</li>
+<li>✅ Excel (.xlsx)</li>
+<li>✅ Avro</li>
+</ul>
+<h3>Example: PostgreSQL Integration</h3>
+<p><strong>Code Example (Python):</strong></p>
+<pre><code class="language-python">import attentix
+
+# Initialize client
+client = attentix.Client(api_key=&quot;your_api_key_here&quot;)
+
+# Create connection
+db = client.create_data_source(
+    name=&quot;Production Database&quot;,
+    type=&quot;postgresql&quot;,
+    host=&quot;mydb.aws.rds.amazonaws.com&quot;,
+    port=5432,
+    database=&quot;analytics&quot;,
+    username=&quot;attentix_user&quot;,
+    password=&quot;secure_password&quot;  # Use env vars!
+)
+
+# Define your query
+query = &quot;&quot;&quot;
+    SELECT 
+        date,
+        revenue,
+        customer_count,
+        conversion_rate
+    FROM metrics
+    WHERE date &gt;= NOW() - INTERVAL '2 years'
+&quot;&quot;&quot;
+
+# Create dataset from query
+dataset = db.query(query, schedule=&quot;daily&quot;)
+
+# Create model
+model = client.create_model(
+    name=&quot;Revenue Forecast&quot;,
+    dataset=dataset,
+    task=&quot;forecast&quot;,
+    target=&quot;revenue&quot;,
+    features=[&quot;customer_count&quot;, &quot;conversion_rate&quot;],
+    horizon=&quot;7d&quot;  # 7-day forecast
+)
+
+# Generate predictions
+predictions = model.predict()
+print(predictions.forecast)
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>Date        | Forecast | Confidence | Factors
+------------|----------|------------|----------------------------------
+2025-04-12  | $842K    | 94%        | Customer growth (+12%), Seasonality
+2025-04-13  | $856K    | 92%        | Customer growth (+12%), Seasonality
+2025-04-14  | $821K    | 91%        | Market headwinds (-3%), Seasonality
+</code></pre>
+<hr>
+<h3>Example: REST API Integration</h3>
+<p><strong>If you don't want to use Python, use our REST API:</strong></p>
+<pre><code class="language-bash"># Get predictions via curl
+curl -X POST https://api.attentix.ai/v1/predictions \
+  -H &quot;Authorization: Bearer your_api_key&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;model_id&quot;: &quot;model_abc123&quot;,
+    &quot;data&quot;: [
+      {&quot;date&quot;: &quot;2025-04-12&quot;, &quot;customer_count&quot;: 45000},
+      {&quot;date&quot;: &quot;2025-04-13&quot;, &quot;customer_count&quot;: 45500}
+    ]
+  }'
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;predictions&quot;: [
+    {
+      &quot;date&quot;: &quot;2025-04-12&quot;,
+      &quot;forecast&quot;: 842000,
+      &quot;confidence&quot;: 0.94,
+      &quot;attention_factors&quot;: {
+        &quot;customer_growth&quot;: 0.45,
+        &quot;seasonality&quot;: 0.38,
+        &quot;market_trend&quot;: 0.17
+      }
+    }
+  ]
+}
+</code></pre>
+<hr>
+<h2>Section 4: Pre-Built Templates by Industry</h2>
+<p><strong>Headline:</strong> &quot;Start with Proven Models&quot;</p>
+<h3>Financial Services Template</h3>
+<p><strong>Pre-configured for:</strong></p>
+<ul>
+<li>Risk forecasting</li>
+<li>Trading signal detection</li>
+<li>Portfolio stress testing</li>
+<li>Counterparty analysis</li>
+</ul>
+<p><strong>Typical setup time:</strong> 1 day (vs. 3 weeks to build from scratch)</p>
+<p><strong>[Deploy Finance Template →]</strong></p>
+<hr>
+<h3>Healthcare Template</h3>
+<p><strong>Pre-configured for:</strong></p>
+<ul>
+<li>Patient outcome prediction</li>
+<li>Diagnostic support</li>
+<li>Resource allocation</li>
+<li>Admission forecasting</li>
+</ul>
+<p><strong>HIPAA-ready:</strong> Yes (encryption, audit trails, consent workflow)</p>
+<p><strong>[Deploy Healthcare Template →]</strong></p>
+<hr>
+<h3>Supply Chain Template</h3>
+<p><strong>Pre-configured for:</strong></p>
+<ul>
+<li>Demand forecasting</li>
+<li>Supplier risk assessment</li>
+<li>Logistics optimization</li>
+<li>Inventory planning</li>
+</ul>
+<p><strong>[Deploy Supply Chain Template →]</strong></p>
+<hr>
+<h3>Retail &amp; E-Commerce Template</h3>
+<p><strong>Pre-configured for:</strong></p>
+<ul>
+<li>Revenue forecasting</li>
+<li>Demand by SKU</li>
+<li>Personalized recommendations</li>
+<li>Churn prediction</li>
+</ul>
+<p><strong>[Deploy Retail Template →]</strong></p>
+<hr>
+<h2>Section 5: API Reference</h2>
+<p><strong>Headline:</strong> &quot;Full API Documentation&quot;</p>
+<h3>Core Endpoints</h3>
+<p><strong>Create Model:</strong></p>
+<pre><code>POST /v1/models
+Content-Type: application/json
+
+{
+  &quot;name&quot;: &quot;My Model&quot;,
+  &quot;dataset_id&quot;: &quot;ds_123&quot;,
+  &quot;task&quot;: &quot;forecast&quot;,
+  &quot;target&quot;: &quot;revenue&quot;,
+  &quot;features&quot;: [&quot;metric1&quot;, &quot;metric2&quot;],
+  &quot;model_type&quot;: &quot;attention-ensemble&quot;
+}
+</code></pre>
+<p><strong>Get Predictions:</strong></p>
+<pre><code>POST /v1/models/{model_id}/predict
+{
+  &quot;data&quot;: [...]
+}
+</code></pre>
+<p><strong>Stream Real-Time Predictions:</strong></p>
+<pre><code>GET /v1/models/{model_id}/stream
+# WebSocket connection for live updates
+</code></pre>
+<p><strong>[Full OpenAPI Reference →]</strong> (Interactive Swagger docs)</p>
+<hr>
+<h2>Section 6: Common Patterns &amp; Recipes</h2>
+<p><strong>Headline:</strong> &quot;Copy-Paste Solutions&quot;</p>
+<h3>Pattern 1: Daily Scheduled Forecasts</h3>
+<p>&quot;I want predictions automatically generated every morning at 9 AM and emailed to my team.&quot;</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-python"># Set up scheduler
+model.schedule_predictions(
+    frequency=&quot;daily&quot;,
+    time=&quot;09:00 UTC&quot;,
+    output={
+        &quot;format&quot;: &quot;csv&quot;,
+        &quot;destination&quot;: &quot;email&quot;,
+        &quot;recipients&quot;: [&quot;team@mycompany.com&quot;]
+    }
+)
+</code></pre>
+<p><strong>[Full Recipe + Code →]</strong></p>
+<hr>
+<h3>Pattern 2: Real-Time Alerts</h3>
+<p>&quot;Trigger a Slack message if the anomaly score exceeds 0.8.&quot;</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-python"># Create trigger
+model.create_trigger(
+    condition=&quot;anomaly_score &gt; 0.8&quot;,
+    action=&quot;slack&quot;,
+    webhook_url=&quot;https://hooks.slack.com/...&quot;,
+    message=&quot;⚠️ Anomaly detected: &quot;
+)
+</code></pre>
+<p><strong>[Full Recipe + Code →]</strong></p>
+<hr>
+<h3>Pattern 3: A/B Testing Models</h3>
+<p>&quot;Deploy two models and gradually shift traffic to the better one.&quot;</p>
+<p><strong>Solution:</strong></p>
+<pre><code class="language-python"># Set up canary deployment
+model_v2.deploy(
+    canary_percentage=10,  # 10% of traffic
+    metric_to_compare=&quot;prediction_accuracy&quot;,
+    auto_promote_if_better_by=5  # Promote if 5% better
+)
+</code></pre>
+<p><strong>[Full Recipe + Code →]</strong></p>
+<hr>
+<h2>Section 7: Troubleshooting</h2>
+<p><strong>Headline:</strong> &quot;Common Issues &amp; Solutions&quot;</p>
+<h3>Q: My predictions seem off. Is the model wrong?</h3>
+<p><strong>A:</strong> Check these first:</p>
+<ol>
+<li>Data quality: Missing values? Outliers? Run our diagnostic tool: <code>model.diagnose()</code></li>
+<li>Feature scaling: Non-normalized features can throw off predictions. Solution: <code>model.auto_scale = True</code></li>
+<li>Train/test split: Is your test data truly held-out? Or are you over-fitting?</li>
+</ol>
+<p><strong>[Deeper troubleshooting guide →]</strong></p>
+<hr>
+<h3>Q: How do I know if my model is ready for production?</h3>
+<p><strong>A:</strong> Use our readiness checklist:</p>
+<ul>
+<li>[ ] Accuracy metric meets threshold (you define)</li>
+<li>[ ] Backtest showed it would have worked historically</li>
+<li>[ ] Data quality score &gt; 90%</li>
+<li>[ ] Explainability score &gt; 85% (attention weights align with domain knowledge)</li>
+<li>[ ] Inference latency &lt; 500ms</li>
+<li>[ ] You've reviewed the top 20 predictions manually</li>
+</ul>
+<p><strong>[Full Readiness Checklist →]</strong></p>
+<hr>
+<h2>Section 8: Pricing &amp; Plans</h2>
+<p><strong>Headline:</strong> &quot;Simple, Transparent Pricing&quot;</p>
+<h3>Pricing Tiers</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Monthly Data</th>
+<th>Inference Requests</th>
+<th>Price</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starter</strong></td>
+<td>1TB</td>
+<td>1M</td>
+<td>$2,400/mo</td>
+<td>POC, evaluation</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>10TB</td>
+<td>10M</td>
+<td>$18,000/mo</td>
+<td>Growing teams</td>
+</tr>
+<tr>
+<td><strong>Enterprise</strong></td>
+<td>100TB+</td>
+<td>100M+</td>
+<td>Custom</td>
+<td>Mission-critical</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Included in all plans:</strong></p>
+<ul>
+<li>Unlimited models and datasets</li>
+<li>API access</li>
+<li>Historical backtesting</li>
+<li>Standard support (email)</li>
+<li>99.9% uptime SLA</li>
+</ul>
+<p><strong>Add-ons:</strong></p>
+<ul>
+<li>Premium support (1h response): +$2,000/mo</li>
+<li>Private cloud deployment: Custom pricing</li>
+<li>Custom SLA: Negotiable</li>
+</ul>
+<p><strong>[View Full Pricing →]</strong></p>
+<hr>
+<h2>Section 9: Case Study: From Zero to Production</h2>
+<p><strong>Headline:</strong> &quot;See How [Company] Got to Predictions in 4 Weeks&quot;</p>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>Financial services company</li>
+<li>Goal: Predict portfolio risk</li>
+<li>Starting point: Spreadsheets + basic Excel models</li>
+</ul>
+<p><strong>Week 1:</strong></p>
+<ul>
+<li>Day 1-2: Onboarding + setup</li>
+<li>Day 3-5: Data integration (3 data sources)</li>
+<li><strong>Outcome:</strong> Data flowing in</li>
+</ul>
+<p><strong>Week 2:</strong></p>
+<ul>
+<li>Day 8-10: Model configuration</li>
+<li>Day 11-12: First predictions generated</li>
+<li>Day 14: Internal review + adjustments</li>
+<li><strong>Outcome:</strong> 85% accuracy on historical data</li>
+</ul>
+<p><strong>Week 3:</strong></p>
+<ul>
+<li>Day 15-17: Backtest on 2 years of data</li>
+<li>Day 18-19: Deploy to staging</li>
+<li>Day 20-21: Prod deployment (10% traffic)</li>
+<li><strong>Outcome:</strong> Live predictions in production</li>
+</ul>
+<p><strong>Week 4:</strong></p>
+<ul>
+<li>Day 22-28: Monitoring + optimization</li>
+<li><strong>Outcome:</strong> 100% confidence, full production scale</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>Early risk detection: 72-hour lead time</li>
+<li>Cost savings: $2.1M in first 90 days</li>
+<li>Team effort: 120 hours (vs. 800 hours to build custom)</li>
+</ul>
+<p><strong>[Read Full Case Study PDF →]</strong> (gated)</p>
+<hr>
+<h2>Section 10: Community &amp; Support</h2>
+<p><strong>Headline:</strong> &quot;You're Not Alone&quot;</p>
+<h3>Support Channels</h3>
+<ul>
+<li><strong>Email:</strong> support@attentix.ai (all plans)</li>
+<li><strong>Slack:</strong> Community Slack (join [link])</li>
+<li><strong>Forum:</strong> community.attentix.ai</li>
+<li><strong>Docs:</strong> https://docs.attentix.ai</li>
+<li><strong>GitHub:</strong> github.com/attentixai/examples</li>
+</ul>
+<h3>Premium Support</h3>
+<ul>
+<li><strong>Priority response:</strong> 1 hour (vs. 24 hours standard)</li>
+<li><strong>Technical architect:</strong> Dedicated engineer for implementation</li>
+<li><strong>Custom consulting:</strong> $250/hr</li>
+</ul>
+<hr>
+<h2>Section 11: FAQ</h2>
+<p><strong>Headline:</strong> &quot;Questions?&quot;</p>
+<h3>Q: Is my data safe?</h3>
+<p><strong>A:</strong> Yes. We encrypt data at rest (AES-256) and in transit (TLS 1.3). We're SOC2 compliant and HIPAA-eligible for healthcare. [Security page →]</p>
+<h3>Q: What if I need to switch to another vendor?</h3>
+<p><strong>A:</strong> Your data stays yours. Export anytime. We're cloud-agnostic—no lock-in. Data export is free; historical model performance data is included.</p>
+<h3>Q: What's your SLA?</h3>
+<p><strong>A:</strong> 99.9% uptime on Starter/Scale. 99.99% on Enterprise. [SLA details →]</p>
+<hr>
+<h2>CTA Section</h2>
+<h3>Ready to Get Started?</h3>
+<p><strong>Start Your 14-Day Free Trial</strong></p>
+<ul>
+<li>No credit card required</li>
+<li>Full features included</li>
+<li>Sample datasets included</li>
+</ul>
+<p><strong>[Start Free Trial →]</strong></p>
+<hr>
+<h3>Need Custom Onboarding?</h3>
+<p><strong>Schedule a call with our solutions architect</strong></p>
+<ul>
+<li>30-minute discovery</li>
+<li>No pressure—just exploration</li>
+<li>[calendly: embedded]</li>
+</ul>
+<p><strong>[Schedule Call →]</strong></p>
+<hr>
+<h2>Footer</h2>
+<ul>
+<li>Documentation: https://docs.attentix.ai</li>
+<li>Community: community.attentix.ai</li>
+<li>Support: support@attentix.ai</li>
+<li>Status Page: status.attentix.ai</li>
+<li>Blog: blog.attentix.ai</li>
+</ul>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Color Scheme:</strong> Precision Noir with code syntax highlighting (Monokai theme)</li>
+<li><strong>Typography:</strong> Mono-font for code blocks, sans-serif for explanatory text</li>
+<li><strong>Code Examples:</strong> Copyable, with language tabs (Python, Bash, JavaScript)</li>
+<li><strong>Interactive Elements:</strong> Expandable FAQs, live API explorer (Swagger)</li>
+<li><strong>Accessibility:</strong> All code blocks have text alternatives; no images required to understand</li>
+<li><strong>Responsiveness:</strong> Mobile-friendly with collapsible navigation for deep content</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

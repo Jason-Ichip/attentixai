@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>Use Cases</h1>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong> &quot;When Data Infrastructure <em>Actually</em> Changes Business Outcomes&quot;</p>
+<p><strong>Subheadline:</strong> &quot;From financial risk prediction to supply chain optimization—see how enterprises use Attentix to reduce losses, accelerate decisions, and unlock revenue.&quot;</p>
+<p><strong>Visual:</strong> Split-screen with 3 industry icons (finance, healthcare, supply chain)</p>
+<hr>
+<h2>Use Case 1: Financial Risk Prediction</h2>
+<p><strong>Headline:</strong> &quot;Banking &amp; Capital Markets — Predict Risk Before It Happens&quot;</p>
+<h3>The Problem</h3>
+<p>Investment firms face three fundamental challenges:</p>
+<ol>
+<li>
+<p><strong>Tail Risk Blindness:</strong> Traditional risk models miss Black Swan events. VAR models assume normal distributions—they don't. When crisis hits, all correlations flip to 1.0.</p>
+</li>
+<li>
+<p><strong>Slow Detection:</strong> Portfolio risk is recalculated daily. By the time your risk officer gets the alert on Friday, the damage on Asian markets has already compounded.</p>
+</li>
+<li>
+<p><strong>Counterparty Confidence:</strong> You need to know if your trading partner will fail <em>before</em> settlement. Current systems only flag risk after the fact.</p>
+</li>
+</ol>
+<h3>The Attentix Method</h3>
+<p><strong>Data ingestion:</strong> Connect your trading data, market feeds, counterparty credit ratings, macro indicators, and historical stress-test results.</p>
+<p><strong>Model:</strong> Attentix ensemble learns:</p>
+<ul>
+<li>Which market indicators predict correlated crashes (Fed rate changes, VIX spikes, breadth divergence)</li>
+<li>Settlement failure patterns 72 hours in advance</li>
+<li>Tail event precursors (rare but high-impact)</li>
+</ul>
+<p><strong>Predictions you get:</strong></p>
+<ul>
+<li>Portfolio stress-test scores (what if X happens?)</li>
+<li>Counterparty failure probability (live, updated hourly)</li>
+<li>Recommended hedges or position reductions</li>
+<li>Confidence intervals with calibrated uncertainty</li>
+</ul>
+<h3>Results from Beta Customer (Top 10 Investment Bank)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>With Attentix</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Risk incidents caught early</td>
+<td>23%</td>
+<td>87%</td>
+<td>+3.8x</td>
+</tr>
+<tr>
+<td>False positive rate</td>
+<td>18%</td>
+<td>3%</td>
+<td>-83%</td>
+</tr>
+<tr>
+<td>Average lead time (hours)</td>
+<td>8</td>
+<td>72</td>
+<td>+9x</td>
+</tr>
+<tr>
+<td>Settlements failed (avoided)</td>
+<td>12/year</td>
+<td>1/year</td>
+<td>-92%</td>
+</tr>
+<tr>
+<td>Risk officer workload reduction</td>
+<td>—</td>
+<td>40% less alert fatigue</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Estimated loss avoidance/year</td>
+<td>—</td>
+<td>$18M</td>
+<td>+$18M</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Implementation Details</h3>
+<p><strong>Timeline:</strong> 8-week POC → 4-week integration → live in production</p>
+<p><strong>Infrastructure:</strong> Runs on customer's AWS/GCP/Azure account (no data leaves your environment)</p>
+<p><strong>Integration Points:</strong></p>
+<ul>
+<li>Bloomberg terminal feeds</li>
+<li>Reuters market data</li>
+<li>Internal trading systems</li>
+<li>Risk management platform (via REST API)</li>
+</ul>
+<p><strong>Output Channels:</strong></p>
+<ul>
+<li>Real-time risk dashboard</li>
+<li>Slack/email alerts (configurable thresholds)</li>
+<li>Scheduled compliance reports</li>
+<li>API for custom integrations</li>
+</ul>
+<hr>
+<h3>Talking Points for Sales</h3>
+<ul>
+<li>✅ &quot;92% prediction accuracy on held-out test sets&quot;</li>
+<li>✅ &quot;No vendor lock-in—runs on your cloud&quot;</li>
+<li>✅ &quot;Explainable predictions—your board will understand why the system flagged a trade&quot;</li>
+<li>✅ &quot;Regulatory compliance built-in (audit trails, immutable logs)&quot;</li>
+</ul>
+<hr>
+<h2>Use Case 2: Healthcare AI-Assisted Diagnosis</h2>
+<p><strong>Headline:</strong> &quot;Healthcare &amp; Pharma — Supporting Clinical Decisions with Interpretable AI&quot;</p>
+<h3>The Problem</h3>
+<p>Clinicians face information overload:</p>
+<ol>
+<li>
+<p><strong>Diagnostic Delays:</strong> Reviewing 500+ lab tests, radiology images, and pathology notes per patient takes 45+ minutes. Earlier diagnosis could save lives.</p>
+</li>
+<li>
+<p><strong>Rare Disease Blindness:</strong> Common diagnoses get attention; rare conditions get missed. Atypical presentations confuse pattern-matching.</p>
+</li>
+<li>
+<p><strong>Malpractice Risk:</strong> Clinicians need to explain their reasoning. Black-box ML doesn't cut it; they need transparency.</p>
+</li>
+</ol>
+<h3>The Attentix Method</h3>
+<p><strong>Data ingestion:</strong> Connect EHR systems, radiology PACS, pathology reports, lab results, and patient history.</p>
+<p><strong>Model:</strong> Multi-head attention trains on:</p>
+<ul>
+<li>Radiology images (learned embeddings for visual patterns)</li>
+<li>Lab values (temporal patterns—what changed from baseline?)</li>
+<li>Patient demographics (age, sex, comorbidities affect priors)</li>
+<li>Clinical notes (NLP to extract symptom descriptions)</li>
+</ul>
+<p><strong>Predictions you get:</strong></p>
+<ul>
+<li>Differential diagnosis ranking (ranked by probability + confidence)</li>
+<li>Early-stage detection signals (flagging precursor symptoms for follow-up)</li>
+<li>Recommended next diagnostic steps (which test to order next?)</li>
+<li>Clinical evidence trail (which data points drove this prediction?)</li>
+</ul>
+<h3>Results from Healthcare Beta Customer (Major Hospital Network)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>With Attentix</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average time to diagnosis</td>
+<td>45 min</td>
+<td>28 min</td>
+<td>-38%</td>
+</tr>
+<tr>
+<td>Rare disease catch rate</td>
+<td>34%</td>
+<td>82%</td>
+<td>+2.4x</td>
+</tr>
+<tr>
+<td>Clinician confidence in AI recommendations</td>
+<td>—</td>
+<td>78%</td>
+<td>High trust</td>
+</tr>
+<tr>
+<td>Audit trail completeness</td>
+<td>60%</td>
+<td>100%</td>
+<td>Full compliance</td>
+</tr>
+<tr>
+<td>Patient satisfaction (decision speed)</td>
+<td>6.2/10</td>
+<td>8.4/10</td>
+<td>+2.2 pts</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Implementation Details</h3>
+<p><strong>HIPAA Compliance:</strong></p>
+<ul>
+<li>End-to-end encryption (data never leaves secure VPC)</li>
+<li>Automatic PHI redaction in audit logs</li>
+<li>Consent workflow integration</li>
+<li>Right-to-deletion implementation</li>
+</ul>
+<p><strong>Timeline:</strong> 12-week pilot → 8-week clinical validation → live</p>
+<p><strong>Integration Points:</strong></p>
+<ul>
+<li>Epic / Cerner EHR systems</li>
+<li>DICOM radiology systems</li>
+<li>Lab information systems</li>
+<li>Custom hospital data warehouse</li>
+</ul>
+<p><strong>Output Channels:</strong></p>
+<ul>
+<li>Clinical dashboard (integrated into EHR workflow)</li>
+<li>Alerts for high-priority findings</li>
+<li>Structured decision support (pop-up at order entry)</li>
+</ul>
+<hr>
+<h3>Talking Points for Sales</h3>
+<ul>
+<li>✅ &quot;92% sensitivity on early-stage detection&quot;</li>
+<li>✅ &quot;Fully explainable—clinicians see the evidence trail&quot;</li>
+<li>✅ &quot;Privacy-first architecture—PHI stays on-prem&quot;</li>
+<li>✅ &quot;FDA premarket pathway support (we can help with documentation)&quot;</li>
+</ul>
+<hr>
+<h2>Use Case 3: Supply Chain Optimization</h2>
+<p><strong>Headline:</strong> &quot;Manufacturing &amp; Logistics — See Problems Before They Disrupt&quot;</p>
+<h3>The Problem</h3>
+<p>Supply chain managers work blind:</p>
+<ol>
+<li>
+<p><strong>Forecast Accuracy Limits:</strong> Current methods predict only 2 weeks ahead. Global supply has 8-12 week lead times.</p>
+</li>
+<li>
+<p><strong>Hidden Risks:</strong> Component shortages and transportation delays cascade. By the time you hear about it, production lines are paused.</p>
+</li>
+<li>
+<p><strong>Fragmented Data:</strong> Supplier data lives in 5+ systems. No unified view of risk.</p>
+</li>
+</ol>
+<h3>The Attentix Method</h3>
+<p><strong>Data ingestion:</strong> Unify supplier data, inventory levels, order histories, logistics tracking, macro indicators, and market demand.</p>
+<p><strong>Model:</strong> Learns:</p>
+<ul>
+<li>Which supplier signals predict shortages (order changes, lead time inflation, financial stress indicators)</li>
+<li>Demand patterns by region and season</li>
+<li>Logistics congestion precursors (port capacity, trucking utilization)</li>
+<li>Correlation cascades (when one supplier fails, which others follow?)</li>
+</ul>
+<p><strong>Predictions you get:</strong></p>
+<ul>
+<li>12-week demand forecast (vs. 2-week baseline)</li>
+<li>Supplier risk scores (which vendors are at risk of supply disruption?)</li>
+<li>Transportation delay forecasts (route-specific, real-time)</li>
+<li>Recommended safety stock levels (optimize inventory vs. working capital)</li>
+</ul>
+<h3>Results from Manufacturing Beta Customer (Tier-1 Auto Supplier)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>With Attentix</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forecast accuracy (4-8 weeks)</td>
+<td>52%</td>
+<td>86%</td>
+<td>+1.65x</td>
+</tr>
+<tr>
+<td>Unplanned production halts</td>
+<td>4/quarter</td>
+<td>0/quarter</td>
+<td>-100%</td>
+</tr>
+<tr>
+<td>Average rerouting time</td>
+<td>24h (reactive)</td>
+<td>14d (proactive)</td>
+<td>+14x lead</td>
+</tr>
+<tr>
+<td>Inventory carrying cost savings</td>
+<td>—</td>
+<td>18% reduction</td>
+<td>$2.1M/year</td>
+</tr>
+<tr>
+<td>Logistics cost optimization</td>
+<td>—</td>
+<td>15% savings</td>
+<td>$1.8M/year</td>
+</tr>
+<tr>
+<td>Supplier relationship improvement</td>
+<td>—</td>
+<td>Proactive alerts</td>
+<td>Data-driven partnerships</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>Implementation Details</h3>
+<p><strong>Data Architecture:</strong></p>
+<ul>
+<li>Connect SAP, Oracle, or NetSuite ERP systems</li>
+<li>Integrate carrier tracking APIs (FedEx, DHL, TMS systems)</li>
+<li>Pull market data feeds</li>
+<li>Supplier scorecard integrations</li>
+</ul>
+<p><strong>Timeline:</strong> 6-week POC → 4-week production deployment</p>
+<p><strong>Output Channels:</strong></p>
+<ul>
+<li>Supply chain control tower dashboard</li>
+<li>Slack/email alerts for risk events</li>
+<li>Automated API calls to trigger rerouting workflows</li>
+<li>Weekly executive summary reports</li>
+</ul>
+<hr>
+<h3>Talking Points for Sales</h3>
+<ul>
+<li>✅ &quot;12-week forecasts enable proactive, not reactive supply planning&quot;</li>
+<li>✅ &quot;18% inventory carrying cost savings&quot;</li>
+<li>✅ &quot;$1.8M average annual logistics optimization&quot;</li>
+<li>✅ &quot;Zero unplanned production halts in pilot&quot;</li>
+</ul>
+<hr>
+<h2>Use Case 4: E-Commerce Demand &amp; Personalization</h2>
+<p><strong>Headline:</strong> &quot;Retail &amp; E-Commerce — Maximize Revenue Per Customer&quot;</p>
+<h3>The Problem</h3>
+<p>E-commerce companies waste revenue:</p>
+<ol>
+<li>
+<p><strong>Demand Forecasting Fails:</strong> Overstock certain products, understock others. Seasonal patterns shift. Markdown timing is guesswork.</p>
+</li>
+<li>
+<p><strong>Personalization is Surface-Level:</strong> &quot;Customers who bought X also like Y.&quot; Missing deeper signals about what customers actually need next.</p>
+</li>
+<li>
+<p><strong>Churn Risk Blindness:</strong> Which customers are about to quit? Current signals are too slow.</p>
+</li>
+</ol>
+<h3>The Attentix Method</h3>
+<p><strong>Data ingestion:</strong> Connect transaction history, customer behavior (clicks, cart abandonment), product attributes, inventory levels, and market trends.</p>
+<p><strong>Predictions you get:</strong></p>
+<ul>
+<li><strong>Demand by SKU:</strong> Next 4 weeks, by geography, down to individual store</li>
+<li><strong>Personalized recommendations:</strong> What this customer wants to buy next (demand-aware, not just collaborative filtering)</li>
+<li><strong>Churn alerts:</strong> Which customers are at risk of never returning?</li>
+<li><strong>Optimal pricing:</strong> What price maximizes revenue vs. margin trade-off?</li>
+</ul>
+<h3>Talking Points</h3>
+<ul>
+<li>✅ &quot;+12% revenue from better demand forecasting&quot;</li>
+<li>✅ &quot;+8% from optimized pricing&quot;</li>
+<li>✅ &quot;35% improvement in churn prediction&quot;</li>
+</ul>
+<hr>
+<h2>Use Case 5: Telecom Network Optimization</h2>
+<p><strong>Headline:</strong> &quot;Telecom &amp; ISPs — Prevent Network Failures&quot;</p>
+<h3>The Problem</h3>
+<p>Network engineers predict failures poorly:</p>
+<ol>
+<li>
+<p><strong>Capacity Planning is Reactive:</strong> By the time you see congestion on a tower, customers have already experienced slowdowns.</p>
+</li>
+<li>
+<p><strong>Maintenance Scheduling Causes Outages:</strong> How do you know which equipment to replace without triggering cascading failures?</p>
+</li>
+<li>
+<p><strong>Customer Churn is Correlated with Network Quality:</strong> But the signal is hidden in ticket data and CSAT scores.</p>
+</li>
+</ol>
+<h3>The Attentix Method</h3>
+<p><strong>Predictions:</strong></p>
+<ul>
+<li>Tower capacity overload (48-hour lead time)</li>
+<li>Equipment failure risk (which devices to preventively replace?)</li>
+<li>Network-churn correlation (customer experience problems before they file tickets)</li>
+</ul>
+<h3>Talking Points</h3>
+<ul>
+<li>✅ &quot;Prevent 89% of unexpected network outages&quot;</li>
+<li>✅ &quot;Reduce MTTR by 40%&quot;</li>
+<li>✅ &quot;Proactive maintenance = 22% fewer emergency repairs&quot;</li>
+</ul>
+<hr>
+<h2>Case Study: Full Deep-Dive</h2>
+<p><strong>Headline &amp; CTA: &quot;See the Full Story: Top Investment Bank Deploys Attentix for Trading Risk&quot;</strong></p>
+<p><strong>Link to detailed 5-page case study PDF:</strong></p>
+<ul>
+<li>Executive summary (1 page)</li>
+<li>Problem statement (1 page)</li>
+<li>Implementation approach (1 page)</li>
+<li>Results (1 page)</li>
+<li>ROI analysis (1 page)</li>
+</ul>
+<hr>
+<h2>The Attentix Advantage Across All Use Cases</h2>
+<p><strong>Chart: Side-by-Side Comparison</strong></p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Legacy Systems</th>
+<th>Industry New Entrants</th>
+<th>Attentix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prediction accuracy</td>
+<td>67%</td>
+<td>78%</td>
+<td><strong>92%</strong></td>
+</tr>
+<tr>
+<td>Time to explain prediction</td>
+<td>2 hours</td>
+<td>15 min</td>
+<td><strong>&lt;1 min</strong></td>
+</tr>
+<tr>
+<td>Inference latency</td>
+<td>30-60 sec</td>
+<td>5-10 sec</td>
+<td><strong>&lt;100ms</strong></td>
+</tr>
+<tr>
+<td>Model retraining</td>
+<td>Weekly batch</td>
+<td>Daily</td>
+<td><strong>Continuous</strong></td>
+</tr>
+<tr>
+<td>Switching costs</td>
+<td>Very high</td>
+<td>High</td>
+<td><strong>Low (cloud-agnostic)</strong></td>
+</tr>
+<tr>
+<td>Security compliance</td>
+<td>Manual</td>
+<td>Partial</td>
+<td><strong>Automated</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>CTA Section</h2>
+<p><strong>Headline:</strong> &quot;See If Attentix Fits Your Use Case&quot;</p>
+<h3>Vertical Selector (Expandable)</h3>
+<p><strong>Finance &amp; Risk:</strong> [→ Full details]
+<strong>Healthcare:</strong> [→ Full details]
+<strong>Supply Chain:</strong> [→ Full details]
+<strong>Retail &amp; E-Commerce:</strong> [→ Full details]
+<strong>Telecom &amp; Infrastructure:</strong> [→ Full details]
+<strong>Other:</strong> [→ Contact us]</p>
+<hr>
+<h3>Schedule a Discovery Call</h3>
+<p><strong>&quot;Let's figure out if Attentix can solve your specific challenge.&quot;</strong></p>
+<ul>
+<li>Calendly: [Embed]</li>
+<li>Duration: 30 min</li>
+<li>What to prep: Your top 3 data sources + business metrics</li>
+</ul>
+<hr>
+<h2>Footer</h2>
+<ul>
+<li>Back to Homepage</li>
+<li>Explore Technology</li>
+<li>Contact Sales</li>
+<li>View For Investors</li>
+</ul>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Visual Style:</strong> Use case icons (piggy bank for finance, stethoscope for healthcare, truck for supply chain)</li>
+<li><strong>Data Visualizations:</strong> Before/after dashboards for each use case (screenshots)</li>
+<li><strong>Color Scheme:</strong> Precision Noir with industry-specific accent highlights (blue for finance, green for healthcare, brown for supply chain)</li>
+<li><strong>Typography:</strong> Clean, readable, minimal jargon (translate acronyms on first use)</li>
+<li><strong>Interactivity:</strong> Expandable sections for each use case, collapsible details</li>
+<li><strong>Case Study PDFs:</strong> Gated downloads (email capture for sales leads)</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

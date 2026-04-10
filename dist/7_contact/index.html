@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>true</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark: #0F0F0F;
+            --darker: #050505;
+            --surface: #1A1A1A;
+            --electric: #00D9FF;
+            --cyan: #00B4D8;
+            --teal: #0099B6;
+            --success: #10B981;
+            --neutral-400: #9CA3AF;
+            --neutral-500: #6B7280;
+            --neutral-600: #4B5563;
+            --neutral-700: #2D3748;
+            --neutral-800: #1F2937;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--darker);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neutral-700);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--electric);
+        }
+
+        nav a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--surface) 100%);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--electric) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--neutral-400);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--electric);
+            padding: 1rem 2rem;
+            border: 2px solid var(--electric);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--cyan);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--neutral-700);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid var(--neutral-700);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #E5E7EB;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: var(--neutral-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Attentix</div>
+        <div>
+            <a href="/">Home</a>
+            <a href="/technology">Technology</a>
+            <a href="/investors">For Investors</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="#" class="nav-cta">Demo</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main>
+        <h1>Contact &amp; Support</h1>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong> &quot;Get in Touch&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Whether you have questions about our technology, want to schedule a demo, or need support—we're here to help.&quot;</p>
+<p><strong>Visual:</strong> Simple, welcoming illustration (hands reaching across a table, collaborative)</p>
+<hr>
+<h2>Section 1: Contact Options by Purpose</h2>
+<p><strong>Headline:</strong> &quot;How Can We Help?&quot;</p>
+<h3>Option 1: Sales Inquiry / Demo Request</h3>
+<p><strong>Use this if:</strong> You're evaluating Attentix for your team or organization.</p>
+<p><strong>Response time:</strong> Within 24 hours</p>
+<p><strong>What to expect:</strong></p>
+<ol>
+<li>Initial email response with fact sheet</li>
+<li>Calendar invite for 30-min discovery call</li>
+<li>Demo with your use case in mind</li>
+</ol>
+<p><strong>[Request Demo →]</strong> (form below)</p>
+<hr>
+<h3>Option 2: Technical Support</h3>
+<p><strong>Use this if:</strong> You're already using Attentix and need help.</p>
+<p><strong>Response time:</strong></p>
+<ul>
+<li>Starter plan: 24 hours</li>
+<li>Scale plan: 4 hours</li>
+<li>Enterprise plan: 1 hour</li>
+</ul>
+<p><strong>Support channels:</strong></p>
+<ul>
+<li><strong>Email:</strong> support@attentix.ai</li>
+<li><strong>Slack:</strong> [Join community Slack]</li>
+<li><strong>Phone:</strong> +1 (415) 555-0123 (Enterprise only)</li>
+</ul>
+<p><strong>[Open Support Ticket →]</strong></p>
+<hr>
+<h3>Option 3: Partnership &amp; Integrations</h3>
+<p><strong>Use this if:</strong> You're interested in partnering with Attentix (integrations, reselling, co-marketing).</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Build an integration for your platform</li>
+<li>Become a technology partner</li>
+<li>Co-author research or case studies</li>
+</ul>
+<p><strong>Contact:</strong> partnerships@attentix.ai</p>
+<p><strong>[Explore Partnership Program →]</strong></p>
+<hr>
+<h3>Option 4: Careers &amp; Hiring</h3>
+<p><strong>Use this if:</strong> You're interested in joining our team.</p>
+<p><strong>Open positions:</strong> Product Manager, Senior Backend Engineer, Sales Engineer, DevRel Lead</p>
+<p><strong><a href="careers">View Careers Page →</a></strong></p>
+<hr>
+<h3>Option 5: Press &amp; Media</h3>
+<p><strong>Use this if:</strong> You're a journalist or blogger writing about enterprise AI infrastructure.</p>
+<p><strong>Contact:</strong> press@attentix.ai</p>
+<p><strong>Recent Press:</strong></p>
+<ul>
+<li>TechCrunch: &quot;Attentix AI Addresses the Enterprise ML Infrastructure Gap&quot;</li>
+<li>VentureBeat: &quot;Why Explainability Is the New Competitive Advantage&quot;</li>
+</ul>
+<p><strong>[View Press Kit →]</strong> (PDF with logos, bios, talking points)</p>
+<hr>
+<h2>Section 2: Contact Form</h2>
+<p><strong>Headline:</strong> &quot;Tell Us About Your Needs (2 minutes)&quot;</p>
+<p><strong>Form Fields:</strong></p>
+<ol>
+<li>
+<p><strong>What's your name?</strong></p>
+<ul>
+<li>Text input</li>
+<li>Required</li>
+</ul>
+</li>
+<li>
+<p><strong>What's your company?</strong></p>
+<ul>
+<li>Text input</li>
+<li>Optional</li>
+</ul>
+</li>
+<li>
+<p><strong>What's your email?</strong></p>
+<ul>
+<li>Email input</li>
+<li>Required</li>
+</ul>
+</li>
+<li>
+<p><strong>What's your primary interest?</strong></p>
+<ul>
+<li>Dropdown:
+<ul>
+<li>[ ] Sales / Demo</li>
+<li>[ ] Technical Support</li>
+<li>[ ] Partnership</li>
+<li>[ ] Careers</li>
+<li>[ ] Press</li>
+<li>[ ] Other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>What's your industry?</strong> (if Sales is selected)</p>
+<ul>
+<li>Dropdown:
+<ul>
+<li>[ ] Financial Services</li>
+<li>[ ] Healthcare</li>
+<li>[ ] Manufacturing &amp; Supply Chain</li>
+<li>[ ] Retail &amp; E-Commerce</li>
+<li>[ ] Telecom</li>
+<li>[ ] Other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>What's your role?</strong> (if Sales is selected)</p>
+<ul>
+<li>Dropdown:
+<ul>
+<li>[ ] Data Science / ML</li>
+<li>[ ] Engineering / Infrastructure</li>
+<li>[ ] Data Analytics</li>
+<li>[ ] Executive / Decision Maker</li>
+<li>[ ] Other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Tell us about your project or question</strong> (optional)</p>
+<ul>
+<li>Text area (500 char max)</li>
+<li>Placeholder: &quot;What are you trying to solve? What challenges are you facing?&quot;</li>
+</ul>
+</li>
+<li>
+<p><strong>How did you hear about us?</strong></p>
+<ul>
+<li>Dropdown:
+<ul>
+<li>[ ] Google search</li>
+<li>[ ] LinkedIn</li>
+<li>[ ] TechCrunch / Press</li>
+<li>[ ] Referral</li>
+<li>[ ] Conference / Event</li>
+<li>[ ] Other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Consent checkbox</strong></p>
+<ul>
+<li>[ ] I agree to Attentix AI contacting me about products and services</li>
+<li>[ ] I'd like to receive occasional updates about new features and industry insights</li>
+</ul>
+</li>
+<li>
+<p><strong>Submit Button</strong></p>
+<ul>
+<li>&quot;Send Message&quot; (primary CTA)</li>
+<li>Or &quot;I prefer a different contact method&quot; (secondary)</li>
+</ul>
+</li>
+</ol>
+<p><strong>After Submit:</strong></p>
+<ul>
+<li>Confirmation message: &quot;Thanks! We'll be in touch within 24 hours.&quot;</li>
+<li>Confirmation email sent with reference ID</li>
+<li>Calendly widget appears (if Sales was selected)</li>
+</ul>
+<hr>
+<h2>Section 3: Frequently Asked Questions</h2>
+<p><strong>Headline:</strong> &quot;Quick Answers&quot;</p>
+<h3>Sales &amp; Product Questions</h3>
+<p><strong>Q: What's the difference between Starter, Scale, and Enterprise plans?</strong>
+A: Primarily data volume and request throughput. All plans include the same features. See <a href="/get-started#pricing">pricing page</a>.</p>
+<p><strong>Q: Do you offer discounts for annual payment?</strong>
+A: Yes—15% discount for annual prepay. Contact sales@attentix.ai for details.</p>
+<p><strong>Q: Can I try Attentix before committing?</strong>
+A: Absolutely. Start a free 14-day trial here. No credit card required.</p>
+<p><strong>Q: What's your refund policy?</strong>
+A: 30-day money-back guarantee if you're not satisfied. No questions asked. (Enterprise contracts are negotiable.)</p>
+<hr>
+<h3>Technical Questions</h3>
+<p><strong>Q: What data formats do you support?</strong>
+A: CSV, JSON, Parquet, Avro, Excel, Snowflake, BigQuery, PostgreSQL, S3, GCS, Kafka, REST APIs, and more. <a href="/get-started#integrations">Full list →</a></p>
+<p><strong>Q: What's your uptime SLA?</strong>
+A: 99.9% (Starter/Scale), 99.99% (Enterprise). View our status page: [status.attentix.ai]</p>
+<p><strong>Q: How long does it take to get predictions after uploading data?</strong>
+A: For most datasets, predictions are ready in 2-5 minutes. For very large datasets (&gt;100GB), 15-30 minutes.</p>
+<p><strong>Q: Can I deploy Attentix in my own cloud environment?</strong>
+A: Yes. Enterprise customers can deploy on AWS, GCP, or Azure VPC. Private cloud also available upon request.</p>
+<hr>
+<h3>Security &amp; Compliance</h3>
+<p><strong>Q: Is my data encrypted?</strong>
+A: Yes. AES-256 at rest, TLS 1.3 in transit. <a href="/security">Security page →</a></p>
+<p><strong>Q: Are you HIPAA compliant?</strong>
+A: Yes, Attentix AI is HIPAA-eligible for healthcare customers. We sign HIPAA Business Associate Agreements (BAA).</p>
+<p><strong>Q: Do you comply with GDPR?</strong>
+A: Yes. We support data portability, right to deletion, and consent workflows. EU data is hosted in Frankfurt.</p>
+<p><strong>Q: Are you SOC2 certified?</strong>
+A: Yes, SOC2 Type II. Audit report available to Enterprise customers under NDA.</p>
+<hr>
+<h3>Implementation &amp; Support</h3>
+<p><strong>Q: How long does it take to go from POC to production?</strong>
+A: 2-4 weeks with our team, or 2-3 days if you're technical and prefer self-service.</p>
+<p><strong>Q: What if I need custom development?</strong>
+A: We offer professional services: custom model development ($50-150K), deployment support, and training. Contact sales@attentix.ai.</p>
+<p><strong>Q: What happens if I want to leave?</strong>
+A: You can export all your data and model configurations. No lock-in. [Data export policy →]</p>
+<hr>
+<h2>Section 4: Office &amp; Locations</h2>
+<p><strong>Headline:</strong> &quot;Where to Find Us&quot;</p>
+<h3>San Francisco HQ</h3>
+<p><strong>Attentix AI, Inc.</strong></p>
+<p>1234 Mission Street
+San Francisco, CA 94103
+USA</p>
+<p>Phone: +1 (415) 555-0123
+Email: hello@attentix.ai</p>
+<p>Office hours: 9 AM - 6 PM PT, Monday-Friday</p>
+<p><strong>Directions:</strong> [Google Maps link]</p>
+<hr>
+<h3>Remote-First Team</h3>
+<p>We're distributed. Most team members are on US Pacific time, but we have members in Europe and Asia. Flexible meeting times available.</p>
+<hr>
+<h2>Section 5: Emergency Support</h2>
+<p><strong>Headline:</strong> &quot;Production Issues?&quot;</p>
+<h3>For Enterprise Customers</h3>
+<p>If you have a critical production issue:</p>
+<ol>
+<li><strong>Call our hotline:</strong> +1 (415) 555-0199 (24/7, Enterprise only)</li>
+<li><strong>Email:</strong> urgent@attentix.ai (we monitor 24/7)</li>
+<li><strong>Slack:</strong> #incidents in our Enterprise Slack workspace</li>
+</ol>
+<p><strong>Response SLA:</strong> 15 minutes for critical issues</p>
+<p><strong>What counts as critical:</strong></p>
+<ul>
+<li>Service is down or severely degraded for your production models</li>
+<li>Data is inaccessible or corrupt</li>
+<li>Security breach suspected</li>
+</ul>
+<hr>
+<h2>Section 6: Request Specific Information</h2>
+<p><strong>Headline:</strong> &quot;Looking for Something Specific?&quot;</p>
+<h3>Pitch Deck</h3>
+<p>&quot;For entrepreneurs and investors: our company overview, market opportunity, and traction.&quot;</p>
+<ul>
+<li>[Download →] (gated, email required)</li>
+</ul>
+<hr>
+<h3>Security Whitepaper</h3>
+<p>&quot;Deep dive into our architecture, encryption, compliance, and security practices.&quot;</p>
+<ul>
+<li>[Download →] (gated, email required)</li>
+</ul>
+<hr>
+<h3>Enterprise Pricing Sheet</h3>
+<p>&quot;Detailed pricing for Scale and Enterprise plans, volume discounts, and SLA terms.&quot;</p>
+<ul>
+<li>[Contact sales@attentix.ai →]</li>
+</ul>
+<hr>
+<h3>API Documentation</h3>
+<p>&quot;Full OpenAPI reference, code examples, and integration patterns.&quot;</p>
+<ul>
+<li>[View Docs →] (https://docs.attentix.ai)</li>
+</ul>
+<hr>
+<h3>RFP / Security Questionnaire</h3>
+<p>&quot;Pre-filled answers to common enterprise procurement questions.&quot;</p>
+<ul>
+<li>[Request Template →] (email: procurement@attentix.ai)</li>
+</ul>
+<hr>
+<h3>Technical Architecture Diagram</h3>
+<p>&quot;Systems-level overview of how Attentix processes data and generates predictions.&quot;</p>
+<ul>
+<li>[Request →] (gated, email required, NDA may apply)</li>
+</ul>
+<hr>
+<h2>Section 7: Community &amp; Events</h2>
+<p><strong>Headline:</strong> &quot;Join the Community&quot;</p>
+<h3>Online Community</h3>
+<p><strong>Attentix Community Forum</strong></p>
+<ul>
+<li>Ask questions and get answers from our team and other users</li>
+<li>Share implementation examples</li>
+<li>Vote on feature requests</li>
+</ul>
+<p>[Join Community →] (community.attentix.ai)</p>
+<hr>
+<h3>Upcoming Events</h3>
+<p><strong>Webinar: &quot;Explainable AI in Production&quot;</strong></p>
+<ul>
+<li>Date: Thursday, April 24, 2025</li>
+<li>Time: 10 AM PT</li>
+<li>Duration: 60 minutes</li>
+<li>Speakers: [Name + title], [Name + title]</li>
+<li>[Register →]</li>
+</ul>
+<p><strong>Workshop: &quot;Building Risk Models with Attentix&quot;</strong></p>
+<ul>
+<li>Date: Week of May 5, 2025</li>
+<li>Time: 2-day cohort</li>
+<li>Location: San Francisco (or virtual)</li>
+<li>Cost: $1,000 (includes materials)</li>
+<li>[Register →]</li>
+</ul>
+<p><strong>Conference Talks:</strong></p>
+<ul>
+<li>AI Summit 2025 (June, San Francisco)</li>
+<li>Strata &amp; AI World (Sept, New York)</li>
+<li>ICML 2025 (Nov, Vienna)</li>
+</ul>
+<hr>
+<h3>Meetups &amp; User Groups</h3>
+<p><strong>San Francisco Data Infrastructure Meetup</strong></p>
+<ul>
+<li>Monthly on 2nd Tuesday at 6:30 PM</li>
+<li>Location: Attentix AI office (1234 Mission St)</li>
+<li>[Meetup.com page →]</li>
+</ul>
+<p><strong>NYC Enterprise ML Meetup</strong></p>
+<ul>
+<li>Quarterly</li>
+<li>[Meetup.com page →]</li>
+</ul>
+<hr>
+<h2>Section 8: Social Media &amp; Newsletter</h2>
+<p><strong>Headline:</strong> &quot;Stay Updated&quot;</p>
+<h3>Follow Us</h3>
+<ul>
+<li><strong>LinkedIn:</strong> [@AttentixAI] - Company updates, hiring, thought leadership</li>
+<li><strong>Twitter/X:</strong> [@AttentixAI] - Product updates, industry commentary, research</li>
+<li><strong>GitHub:</strong> [github.com/attentixai] - Code, examples, open-source projects</li>
+<li><strong>YouTube:</strong> [Attentix AI Channel] - Tutorials, webinars, product demos</li>
+</ul>
+<h3>Newsletter</h3>
+<p><strong>Subscribe to &quot;The Intelligence Brief&quot;</strong>
+&quot;Weekly insights on enterprise AI infrastructure, market trends, and product updates.&quot;</p>
+<p><em>&quot;By subscribing, you'll get: 1 research-backed insight, 1 product update, 1 customer story—every Friday in your inbox.&quot;</em></p>
+<p>[Newsletter signup box]</p>
+<ul>
+<li>Email input</li>
+<li>[ ] I also want to hear about new features and special offers</li>
+<li>&quot;Subscribe&quot; button</li>
+</ul>
+<hr>
+<h2>Section 9: Referral Program</h2>
+<p><strong>Headline:</strong> &quot;Know Someone Who Should Use Attentix?&quot;</p>
+<h3>Earn Rewards</h3>
+<p><strong>Refer a customer who signs up:</strong></p>
+<ul>
+<li>Referrer gets: 3 months free on your current plan (or $3,000 credit)</li>
+<li>Referred customer gets: First month 50% off</li>
+</ul>
+<p><strong>No limit:</strong> Refer as many as you want. Rewards stack.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Email your referral link: [Share →]</li>
+<li>They click link and sign up</li>
+<li>Their first invoice closes → you get the reward</li>
+<li>Simple as that.</li>
+</ol>
+<p><strong>[Start Referring →]</strong></p>
+<hr>
+<h2>Section 10: Feedback &amp; Feature Requests</h2>
+<p><strong>Headline:</strong> &quot;Help Shape Our Roadmap&quot;</p>
+<p>We read every piece of feedback.</p>
+<h3>Share Your Ideas</h3>
+<p><strong>Feature Requests:</strong> What would make Attentix better for your use case?</p>
+<ul>
+<li>[Submit Feature Request →] (public roadmap)</li>
+</ul>
+<p><strong>Bug Reports:</strong> Found a problem?</p>
+<ul>
+<li>[Report Bug →] (GitHub issues or support@attentix.ai)</li>
+</ul>
+<p><strong>General Feedback:</strong> Thoughts on our product, docs, or support?</p>
+<ul>
+<li><strong>Email:</strong> feedback@attentix.ai</li>
+</ul>
+<hr>
+<h2>Section 11: Accessibility &amp; Accommodations</h2>
+<p><strong>Headline:</strong> &quot;We're Here for Everyone&quot;</p>
+<h3>For Customers with Accessibility Needs</h3>
+<p>Our platform aims to be accessible to all users:</p>
+<ul>
+<li>Website: WCAG 2.1 Level AA compliant</li>
+<li>Dashboard: Keyboard navigation supported</li>
+<li>Documentation: Alt text on all images</li>
+</ul>
+<p><strong>Having trouble?</strong> Contact: accessibility@attentix.ai</p>
+<hr>
+<h2>Section 12: Legal</h2>
+<p><strong>Headline:</strong> &quot;Important Documents&quot;</p>
+<ul>
+<li>[Privacy Policy →]</li>
+<li>[Terms of Service →]</li>
+<li>[Data Processing Agreement →]</li>
+<li>[Enterprise Agreement Template →]</li>
+<li>[Acceptable Use Policy →]</li>
+<li>[Bug Bounty Program →]</li>
+</ul>
+<hr>
+<h2>Final CTA Section</h2>
+<p><strong>Headline:</strong> &quot;Ready to Get Started?&quot;</p>
+<h3>Option 1: Take the Free Trial</h3>
+<p>&quot;No credit card. Full features. 14 days.&quot;
+<strong>[Start Free Trial →]</strong></p>
+<hr>
+<h3>Option 2: Schedule a Demo</h3>
+<p>&quot;Talk to our team about your specific use case.&quot;
+<strong>[Schedule Demo →]</strong></p>
+<hr>
+<h3>Option 3: Send a Message</h3>
+<p>&quot;Have a specific question? We'll respond within 24 hours.&quot;
+<strong>[Contact Form (jump to Section 2) →]</strong></p>
+<hr>
+<h2>Footer</h2>
+<h3>Quick Links</h3>
+<ul>
+<li>Home</li>
+<li>Technology</li>
+<li>For Investors</li>
+<li>About</li>
+<li>Careers</li>
+</ul>
+<h3>Support</h3>
+<ul>
+<li>Docs: docs.attentix.ai</li>
+<li>Community: community.attentix.ai</li>
+<li>Status: status.attentix.ai</li>
+<li>Email: hello@attentix.ai</li>
+</ul>
+<h3>Legal</h3>
+<ul>
+<li>Privacy Policy</li>
+<li>Terms of Service</li>
+<li>Security Policy</li>
+</ul>
+<h3>Follow</h3>
+<ul>
+<li>LinkedIn</li>
+<li>Twitter/X</li>
+<li>GitHub</li>
+<li>YouTube</li>
+</ul>
+<h3>Newsletter</h3>
+<p>[Email signup]</p>
+<hr>
+<h2>Design Notes</h2>
+<ul>
+<li><strong>Color Scheme:</strong> Precision Noir with warm accent highlights for important CTAs</li>
+<li><strong>Typography:</strong> Clean, readable sans-serif with good contrast</li>
+<li><strong>Form Design:</strong> Mobile-optimized, single-column layout, clear labels</li>
+<li><strong>Accessibility:</strong> Form labels tied to inputs, keyboard-navigable, screen-reader friendly</li>
+<li><strong>Responsiveness:</strong> Optimized for mobile (phone numbers clickable, emails are mailto links)</li>
+<li><strong>Trust Signals:</strong> Logos of industries we serve, testimonial snippets, response time badges</li>
+<li><strong>Tone:</strong> Friendly, professional, responsive—we're here to help</li>
+</ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="/technology">Technology</a>
+                <a href="/use-cases">Use Cases</a>
+                <a href="/get-started">Get Started</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/blog">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms</a>
+                <a href="/security">Security</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid #2D3748; padding-top: 2rem;">
+            © 2026 Attentix AI. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
