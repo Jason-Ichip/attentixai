@@ -17,7 +17,7 @@ permalink: /index.html
 
 **CTA Buttons:**
 - Primary: "Request Demo"
-- Secondary: "Explore the Moat" (links to #technology)
+- Secondary: "Explore the Moat" (links to /technology)
 </div>
 
 ---
