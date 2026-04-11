@@ -1,2 +1,3 @@
 # Ignore preview HTML files used for design mockups
 previews/*.html
+.vercel
