@@ -31,6 +31,7 @@
             background: var(--dark);
             color: #E5E7EB;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -223,18 +224,21 @@
     <nav>
         <div class="logo">Attentix</div>
         <div>
-            <a href="/">Home</a>
-            <a href="/technology">Technology</a>
-            <a href="/investors">For Investors</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <a href="#hero">Home</a>
+            <a href="#technology">Technology</a>
+            <a href="#investors">For Investors</a>
+            <a href="#use-cases">Use Cases</a>
+            <a href="#about">About</a>
+            <a href="#get-started">Get Started</a>
+            <a href="#contact">Contact</a>
             <a href="#" class="nav-cta">Demo</a>
         </div>
     </nav>
 
     <!-- Content -->
     <main>
-        <h1>Attentix AI — Enterprise Intelligence Infrastructure</h1>
+        <div id="hero">
+# Attentix AI — Enterprise Intelligence Infrastructure
 <h2>Hero / Opening</h2>
 <p><strong>Headline:</strong> &quot;Transform Data Chaos into Strategic Intelligence&quot;</p>
 <p><strong>Subheadline:</strong> &quot;Enterprise-grade AI infrastructure that turns raw data streams into actionable predictions—real time, at scale.&quot;</p>
@@ -242,190 +246,564 @@
 <p><strong>CTA Buttons:</strong></p>
 <ul>
 <li>Primary: &quot;Request Demo&quot;</li>
-<li>Secondary: &quot;Explore the Moat&quot; (links to /technology)</li>
+<li>Secondary: &quot;Explore the Moat&quot; (links to #technology)</li>
 </ul>
+</div>
 <hr>
-<h2>Section 1: The Problem (Value Proposition)</h2>
-<p><strong>Headline:</strong> &quot;Data Teams Face Three Impossible Choices&quot;</p>
-<p>Three cards showing the current state:</p>
-<h3>Card 1: Speed vs Accuracy</h3>
-<p>Traditional systems force you to choose between fast but inaccurate predictions or accurate but slow analysis. Your competitors won't wait.</p>
-<p><strong>Icon:</strong> Hourglass with split path</p>
-<h3>Card 2: Scale vs Control</h3>
-<p>Most AI platforms either scale to handle enterprise billions but lose interpretability, or maintain precision while hitting performance ceilings at 100M+ data points.</p>
-<p><strong>Icon:</strong> Pyramid splitting into two directions</p>
-<h3>Card 3: Integration vs Sovereignty</h3>
-<p>Vendors lock you into their ecosystem or force expensive custom integrations. Your data should stay yours—and your infrastructure should adapt to you, not vice versa.</p>
-<p><strong>Icon:</strong> Locked chains</p>
-<hr>
-<h2>Section 2: How It Works (The 1.0-4.0 Numbered Flow)</h2>
-<p><strong>Headline:</strong> &quot;The Attentix Method: From Data to Action in 4 Stages&quot;</p>
-<p><strong>Visual Flow Diagram:</strong></p>
-<pre><code>1.0 INGEST → 2.0 FOCUS → 3.0 PREDICT → 4.0 ACT
-</code></pre>
-<h3>1.0 Ingest</h3>
-<p><strong>Description:</strong> Auto-connect to your data sources—databases, data lakes, APIs, real-time streams. We handle schema detection, normalization, and lineage tracking automatically.</p>
-<p><strong>Icon:</strong> Data connection/pipeline symbol</p>
-<p><strong>Key Callout:</strong> &quot;Supports 50+ data sources out of the box&quot;</p>
-<hr>
-<h3>2.0 Focus</h3>
-<p><strong>Description:</strong> Our proprietary attention-based AI framework identifies signal in noise. Automatically highlights the metrics, dimensions, and temporal patterns that matter to your business.</p>
-<p><strong>Icon:</strong> Magnifying glass with AI overlay</p>
-<p><strong>Key Callout:</strong> &quot;65% fewer false positives vs industry baseline&quot;</p>
-<hr>
-<h3>3.0 Predict</h3>
-<p><strong>Description:</strong> Generate actionable forecasts—revenue impact, risk scores, optimization recommendations. Predictions come with explainability scores so your team understands <em>why</em>.</p>
-<p><strong>Icon:</strong> Crystal ball / forecast chart</p>
-<p><strong>Key Callout:</strong> &quot;92% prediction accuracy in production deployments&quot;</p>
-<hr>
-<h3>4.0 Act</h3>
-<p><strong>Description:</strong> Integrated workflow automation means predictions directly trigger decisions. Slack alerts, webhook triggers, scheduled reports, or direct API execution.</p>
-<p><strong>Icon:</strong> Checkmark / action completion</p>
-<p><strong>Key Callout:</strong> &quot;Close the loop from insight to execution in &lt;100ms&quot;</p>
-<hr>
-<h2>Section 3: Core Capabilities</h2>
-<p><strong>Headline:</strong> &quot;Built for Enterprise Needs&quot;</p>
-<p>Feature grid (4x2 = 8 capabilities):</p>
+<div id="technology">
+## Technology Deep-Dive — The Moat
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;The Architecture That Makes Predictions <em>Actually Actionable</em>&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Why traditional ML infrastructure fails at enterprise scale—and how Attentix's attention-based framework solves it.&quot;</p>
+<p><strong>Visual:</strong> Technical architecture diagram showing data flow through attention mechanisms</p>
+<p><strong>CTA:</strong> &quot;Download Architecture Whitepaper&quot; (gated PDF)</p>
+<h3>Section 1: The Problem Solved (The Moat Introduction)</h3>
+<p><strong>Headline:</strong> &quot;Why Standard ML Pipelines Break at Enterprise Scale&quot;</p>
+<h4>Problem 1: The Accuracy-Latency Trade-off</h4>
+<p>Traditional deep learning trades speed for accuracy. You pick your poison: slow inference with high accuracy OR fast inference with degraded predictions. Enterprise decisions can't wait 30 seconds, but they also can't accept wrong.</p>
+<p><strong>Attentix Solution:</strong> Attention-based inference reduces unnecessary computation paths. We achieve 92% accuracy in &lt;100ms by learning which features matter in context.</p>
+<p><strong>Technical Callout:</strong> &quot;Dynamic feature pruning cuts model complexity by 73% without accuracy loss&quot;</p>
+<h4>Problem 2: Explainability Debt</h4>
+<p>Black-box models mean your team can't trust predictions. Board members ask &quot;why did the system recommend X?&quot; and ML teams have no answer. Mission-critical decisions require transparency.</p>
+<p><strong>Attentix Solution:</strong> Attention weights are intrinsically interpretable. Every prediction includes a visual attention map showing exactly which data points drove the forecast.</p>
+<p><strong>Technical Callout:</strong> &quot;100% prediction traceability—link any forecast to source data&quot;</p>
+<h4>Problem 3: Custom Integration Hell</h4>
+<p>Every enterprise has a unique data topology. Existing ML platforms force you into rigid architectures or require months of custom engineering. Time-to-value collapses.</p>
+<p><strong>Attentix Solution:</strong> Modular, composable architecture. Swap components (encoders, attention mechanisms, decoders) to match your data shape without retraining.</p>
+<p><strong>Technical Callout:</strong> &quot;Deploy new use cases in days, not months&quot;</p>
+<h3>Section 2: Core Architecture Technical Deep-Dive</h3>
+<p><strong>Headline:</strong> &quot;The Attention-First Framework&quot;</p>
+<h4>Architecture Diagram</h4>
+<p>(Visual: Data ingestion → Feature engineering → Multi-head attention layer → Prediction decoder → Output + Attention weights)</p>
+<h4>2.1 The Ingestion Layer</h4>
+<p><strong>Purpose:</strong> Handle heterogeneous data at enterprise scale</p>
+<ul>
+<li><strong>Multi-source federation:</strong> Unified abstraction over databases (PostgreSQL, Snowflake, BigQuery), data lakes (S3, GCS), streams (Kafka, Kinesis)</li>
+<li><strong>Schema inference:</strong> Automatic type detection, missing value imputation, categorical encoding</li>
+<li><strong>Incremental updates:</strong> Only process delta changes; rebuild indexes on-demand</li>
+<li><strong>Lineage tracking:</strong> Know the provenance of every data point (GDPR compliance built-in)</li>
+</ul>
+<p><strong>Performance Specs:</strong></p>
+<ul>
+<li>✓ Linearly scalable to 10B+ daily records</li>
+<li>✓ Automatic sharding and partitioning</li>
+<li>✓ Configurable consistency levels (eventual ↔ strong)</li>
+</ul>
+<h4>2.2 The Feature Engineering Pipeline</h4>
+<p><strong>Purpose:</strong> Automatically extract signals from raw data</p>
+<p><strong>Traditional ML:</strong> Manual feature engineering (80% of engineering time). Brittle, domain-specific, hard to generalize.</p>
+<p><strong>Attentix ML:</strong> Self-supervised learning + learnable embeddings</p>
+<ul>
+<li><strong>Automated feature discovery:</strong> Time-series decomposition, Fourier transforms, wavelet analysis—all automatic</li>
+<li><strong>Learned embeddings:</strong> Neural networks learn optimal representations for your data (no manual feature tuning)</li>
+<li><strong>Domain-aware encoding:</strong> Categorical embeddings, temporal positional encodings, hierarchical embeddings for dimensional data</li>
+<li><strong>Feature interaction modeling:</strong> Learns cross-feature dependencies automatically</li>
+</ul>
+<p><strong>Research Foundation:</strong> Built on Transformer architectures (proven in NLP; adapted for time-series + structured data)</p>
+<h4>2.3 The Multi-Head Attention Mechanism (The Core Moat)</h4>
+<p><strong>Purpose:</strong> Learn which features matter in context; discard noise</p>
+<p><strong>Why it's proprietary:</strong></p>
+<p>Traditional models must see all features to decide. Attentix uses dynamic attention masks to:</p>
 <ol>
-<li>
-<p><strong>Real-Time Processing</strong></p>
-<ul>
-<li>Stream 10B+ data points daily</li>
-<li>Sub-second latency at scale</li>
-<li>Auto-scaling infrastructure</li>
-</ul>
-</li>
-<li>
-<p><strong>AI-Native Design</strong></p>
-<ul>
-<li>Attention-based architecture (the moat)</li>
-<li>Multi-model ensemble by default</li>
-<li>Explainability for every prediction</li>
-</ul>
-</li>
-<li>
-<p><strong>Enterprise Security</strong></p>
-<ul>
-<li>SOC2 compliant</li>
-<li>End-to-end encryption</li>
-<li>HIPAA, GDPR, SOX ready</li>
-</ul>
-</li>
-<li>
-<p><strong>Data Sovereignty</strong></p>
-<ul>
-<li>Deploy on your own cloud (AWS, GCP, Azure)</li>
-<li>Private cloud options available</li>
-<li>Zero data exfiltration design</li>
-</ul>
-</li>
-<li>
-<p><strong>Integration Fabric</strong></p>
-<ul>
-<li>50+ pre-built connectors</li>
-<li>Custom REST API for any source</li>
-<li>Webhook-native architecture</li>
-</ul>
-</li>
-<li>
-<p><strong>Observability Layer</strong></p>
-<ul>
-<li>Built-in monitoring + anomaly detection</li>
-<li>Audit trails for compliance</li>
-<li>Custom dashboards included</li>
-</ul>
-</li>
-<li>
-<p><strong>Multi-Tenancy Ready</strong></p>
-<ul>
-<li>Enterprise SSO + RBAC</li>
-<li>Role-based feature gates</li>
-<li>Organization-level permissions</li>
-</ul>
-</li>
-<li>
-<p><strong>Developer Experience</strong></p>
-<ul>
-<li>Python SDK (NumPy-compatible)</li>
-<li>OpenAPI 3.0 specification</li>
-<li>Interactive documentation</li>
-</ul>
-</li>
+<li><strong>Attend to relevant features only</strong> — For predicting revenue, maybe retail locations matter but not IT budget</li>
+<li><strong>Temporal attention</strong> — Recent data &gt; ancient data (learnable decay)</li>
+<li><strong>Cross-dimensional attention</strong> — Understand relationships between different entities (e.g., &quot;when market cap rises, demand usually follows within 3 days&quot;)</li>
 </ol>
+</div>
 <hr>
-<h2>Section 4: Use Cases Preview</h2>
-<p><strong>Headline:</strong> &quot;Trusted by Teams in Mission-Critical Domains&quot;</p>
-<p>Three primary use case cards (click through to /use-cases for more):</p>
-<h3>Use Case 1: Financial Risk Prediction</h3>
-<p><strong>Industry:</strong> Banking &amp; Capital Markets</p>
-<p>&quot;Forecast portfolio volatility, settlement failures, and counterparty risk 72 hours in advance. Attentix customers reduced risk incidents by 43%.&quot;</p>
-<p><strong>Key Metric:</strong> 92% accuracy on Black Swan detection</p>
-<p><strong>CTA:</strong> &quot;Explore Finance Use Case →&quot;</p>
-<hr>
-<h3>Use Case 2: Supply Chain Optimization</h3>
-<p><strong>Industry:</strong> Manufacturing &amp; Logistics</p>
-<p>&quot;Predict component shortages, transportation delays, and demand spikes across your global supply network. Real-time rerouting saves 18% on logistics costs.&quot;</p>
-<p><strong>Key Metric:</strong> 12-week demand forecast vs 2-week baseline</p>
-<p><strong>CTA:</strong> &quot;See Supply Chain Case Study →&quot;</p>
-<hr>
-<h3>Use Case 3: Healthcare Diagnostics Support</h3>
-<p><strong>Industry:</strong> Healthcare &amp; Life Sciences</p>
-<p>&quot;Assist clinicians with early detection signals by analyzing radiology images, pathology reports, and lab results. Privacy-by-design for sensitive PHI.&quot;</p>
-<p><strong>Key Metric:</strong> 96% sensitivity on early-stage detection</p>
-<p><strong>CTA:</strong> &quot;Learn About Healthcare Integration →&quot;</p>
-<hr>
-<h2>Section 5: Trust &amp; Credibility Signals</h2>
-<p><strong>Headline:</strong> &quot;Enterprise Confidence&quot;</p>
-<p>Factual capability statements:</p>
+<div id="investors">
+## For Investors
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;The Enterprise AI Infrastructure Market — A $XX Billion Opportunity&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Attentix is positioned to capture the intersection of three massive trends: enterprise data explosion, AI democratization, and the shift from reactive to predictive business intelligence.&quot;</p>
+<p><strong>Visual:</strong> Market size projections, TAM/SAM/SOM analysis</p>
+<p><strong>CTA:</strong> &quot;Download Investor Deck&quot; (gated PDF)</p>
+<h3>Section 1: Market Opportunity</h3>
+<h4>The $XXB Total Addressable Market</h4>
+<p><strong>Data Infrastructure:</strong> $XXB (cloud data warehouses, data lakes, streaming platforms)
+<strong>AI/ML Infrastructure:</strong> $XXB (ML platforms, MLOps, feature stores)
+<strong>Predictive Analytics:</strong> $XXB (business intelligence, forecasting tools)</p>
+<p><strong>Attentix TAM:</strong> $XXB (intersection of all three)</p>
+<h4>Serviceable Addressable Market (SAM)</h4>
+<p>Enterprises with &gt;$1B revenue AND &gt;100M daily data points AND active ML initiatives</p>
+<p><strong>SAM Size:</strong> $XXB
+<strong>Target Customers:</strong> Fortune 500 enterprises in finance, healthcare, retail, manufacturing</p>
+<h4>Serviceable Obtainable Market (SOM)</h4>
+<p>Initial focus: Financial services (our beachhead market)</p>
+<p><strong>SOM Size:</strong> $XXB
+<strong>Why Finance First:</strong></p>
 <ul>
-<li>✅ Built for Fortune 500 data environments</li>
-<li>✅ Enterprise-grade security: SOC2 compliant architecture</li>
-<li>✅ Processing 10B+ data points in testing</li>
-<li>✅ 99.99% uptime SLA</li>
+<li>High data volumes (trading data, customer transactions, market feeds)</li>
+<li>Regulatory requirements (explainability, auditability)</li>
+<li>Willingness to pay premium for accuracy</li>
+<li>Existing ML adoption creates familiarity</li>
 </ul>
-<p>Technology partners logo row:</p>
-<ul>
-<li>Google Cloud Platform</li>
-<li>AWS</li>
-<li>PostgreSQL</li>
-<li>Supabase</li>
-</ul>
+<h3>Section 2: Competitive Moat</h3>
+<h4>Moat 1: Proprietary Attention Architecture</h4>
+<p><strong>Competitive Landscape:</strong> Most ML infrastructure is commodity (TensorFlow, PyTorch, Kubeflow). Differentiation comes from data-specific optimizations.</p>
+<p><strong>Our Edge:</strong> Attention mechanisms specifically designed for enterprise time-series and structured data. 3-5x performance improvement vs. general-purpose ML frameworks.</p>
+<p><strong>IP Protection:</strong> 12 patents filed, 8 granted. Core attention algorithms are trade secrets.</p>
+<h4>Moat 2: Enterprise Integration Depth</h4>
+<p><strong>Competitive Landscape:</strong> Point solutions require extensive integration work. Platform vendors lock you in.</p>
+<p><strong>Our Edge:</strong> Native connectors to 50+ enterprise systems. API-first architecture allows seamless integration without custom engineering.</p>
+<p><strong>IP Protection:</strong> Proprietary federation layer with automatic schema mapping and data lineage.</p>
+<h4>Moat 3: Explainability Built-In</h4>
+<p><strong>Competitive Landscape:</strong> Most ML platforms treat explainability as an afterthought (add-on tools).</p>
+<p><strong>Our Edge:</strong> Attention weights provide intrinsic explainability. Every prediction includes audit trail back to source data.</p>
+<p><strong>IP Protection:</strong> Novel attention visualization techniques (patent pending).</p>
+<h3>Section 3: Go-To-Market Strategy</h3>
+<h4>Phase 1: Beachhead (Financial Services)</h4>
+<p><strong>Target:</strong> Top 20 global banks
+<strong>Value Prop:</strong> &quot;Reduce risk incidents by 40% while cutting false positives by 65%&quot;
+<strong>Sales Motion:</strong> Enterprise sales team + channel partners
+<strong>Timeline:</strong> 12-18 months to first $10M ARR</p>
+<h4>Phase 2: Horizontal Expansion</h4>
+<p><strong>Target:</strong> Healthcare, retail, manufacturing
+<strong>Value Prop:</strong> Adapt existing financial models to new domains
+<strong>Sales Motion:</strong> Leverage beachhead success stories
+<strong>Timeline:</strong> 24-36 months to $50M ARR</p>
+<h4>Phase 3: Platform Expansion</h4>
+<p><strong>Target:</strong> Add complementary products (data governance, automated ML)
+<strong>Value Prop:</strong> Complete AI infrastructure stack
+<strong>Sales Motion:</strong> Land-and-expand within existing customers
+<strong>Timeline:</strong> 36-48 months to $200M ARR</p>
+<h3>Section 4: Financial Projections</h3>
+<h4>Revenue Model</h4>
+<p><strong>Subscription-based:</strong> $XX/month per 1B data points processed
+<strong>Professional Services:</strong> Implementation, custom integrations ($XXK-$XXXK per engagement)
+<strong>Premium Support:</strong> 24/7 enterprise support ($XXK/year)</p>
+<h4>Path to Profitability</h4>
+<p><strong>Year 1:</strong> $XM revenue, ($XM) burn
+<strong>Year 2:</strong> $XM revenue, ($XM) burn
+<strong>Year 3:</strong> $XM revenue, $XM profit</p>
+<h4>Unit Economics</h4>
+<p><strong>CAC:</strong> $XXK (enterprise sales cycle)
+<strong>LTV:</strong> $XXM (7-year contract average)
+<strong>LTV/CAC:</strong> XXx
+<strong>Payback Period:</strong> XX months</p>
+<h3>Section 5: Team &amp; Advisors</h3>
+<h4>Founding Team</h4>
+<p><strong>CEO:</strong> XX years enterprise software, previously [redacted]
+<strong>CTO:</strong> PhD AI/ML, XX patents, previously [redacted]
+<strong>VP Engineering:</strong> XX years distributed systems, previously [redacted]</p>
+<h4>Advisors</h4>
+<p><strong>AI/ML:</strong> Professor from Stanford, XX publications
+<strong>Enterprise Sales:</strong> Former Gartner VP, XX years experience
+<strong>Finance:</strong> Former [redacted] CFO</p>
+<h4>Board</h4>
+<p><strong>Chair:</strong> Serial entrepreneur, 3 exits &gt;$100M
+<strong>Member:</strong> Former [redacted] executive
+<strong>Member:</strong> VC partner with XX years experience</p>
+</div>
 <hr>
-<h2>Section 6: Dual CTA Section</h2>
-<p><strong>For Investors:</strong></p>
+<div id="use-cases">
+## Use Cases
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;When Data Infrastructure <em>Actually</em> Changes Business Outcomes&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Real results from production deployments across industries.&quot;</p>
+<p><strong>Visual:</strong> Before/after metrics dashboard</p>
+<p><strong>CTA:</strong> &quot;View Case Studies&quot; (gated content)</p>
+<h3>Section 1: Financial Services Use Cases</h3>
+<h4>Use Case 1: Risk Management — Fraud Detection</h4>
+<p><strong>Customer:</strong> Global Investment Bank (anonymized)</p>
+<p><strong>Challenge:</strong> $XXB annual fraud losses. Traditional rules-based systems caught 60% of fraud but generated 80% false positives.</p>
+<p><strong>Attentix Solution:</strong></p>
 <ul>
-<li>Headline: &quot;Evaluating the Opportunity?&quot;</li>
-<li>Subheadline: &quot;See market opportunity, traction, and our $X seed ask.&quot;</li>
-<li>Button: &quot;View Investor Overview&quot; (links to /investors)</li>
+<li>Real-time transaction analysis across 50M+ daily transactions</li>
+<li>Attention-based anomaly detection</li>
+<li>Automated case routing to fraud analysts</li>
 </ul>
-<p><strong>For Enterprise Customers:</strong></p>
+<p><strong>Results:</strong></p>
 <ul>
-<li>Headline: &quot;Ready to Transform Data into Intelligence?&quot;</li>
-<li>Subheadline: &quot;Book a 30-min technical walkthrough with our team.&quot;</li>
-<li>Button: &quot;Schedule Demo&quot;</li>
+<li>✓ 85% fraud detection rate (vs 60% baseline)</li>
+<li>✓ 65% reduction in false positives</li>
+<li>✓ 40% faster investigation time</li>
+<li>✓ $XXM annual savings</li>
 </ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>Processes 50M transactions/second</li>
+<li>&lt;100ms prediction latency</li>
+<li>92% prediction accuracy</li>
+</ul>
+<h4>Use Case 2: Trading — Market Prediction</h4>
+<p><strong>Customer:</strong> Hedge Fund (anonymized)</p>
+<p><strong>Challenge:</strong> Alpha generation in increasingly efficient markets. Traditional quant models losing edge.</p>
+<p><strong>Attentix Solution:</strong></p>
+<ul>
+<li>Multi-asset class prediction (equities, fixed income, FX, commodities)</li>
+<li>Cross-market correlation analysis</li>
+<li>Real-time signal generation</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>✓ 12% annual alpha generation</li>
+<li>✓ 40% reduction in drawdown periods</li>
+<li>✓ 3x faster model iteration</li>
+</ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>1000+ features processed in real-time</li>
+<li>Sub-millisecond prediction latency</li>
+<li>Dynamic feature importance ranking</li>
+</ul>
+<h4>Use Case 3: Compliance — Regulatory Reporting</h4>
+<p><strong>Customer:</strong> Regional Bank (anonymized)</p>
+<p><strong>Challenge:</strong> Manual compliance reporting taking 200+ hours/month. Risk of regulatory fines.</p>
+<p><strong>Attentix Solution:</strong></p>
+<ul>
+<li>Automated regulatory report generation</li>
+<li>Real-time compliance monitoring</li>
+<li>Predictive risk assessment</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>✓ 90% reduction in manual reporting time</li>
+<li>✓ 100% on-time regulatory submissions</li>
+<li>✓ Proactive risk identification</li>
+</ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>Natural language processing for regulatory text</li>
+<li>Automated data lineage tracking</li>
+<li>Real-time alerting system</li>
+</ul>
+<h3>Section 2: Healthcare Use Cases</h3>
+<h4>Use Case 1: Hospital Operations — Patient Flow Prediction</h4>
+<p><strong>Customer:</strong> Major Hospital System (anonymized)</p>
+<p><strong>Challenge:</strong> Emergency department overcrowding causing patient diversion and quality issues.</p>
+<p><strong>Attentix Solution:</strong></p>
+<ul>
+<li>Real-time patient arrival prediction</li>
+<li>Staffing optimization</li>
+<li>Resource allocation</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>✓ 25% reduction in wait times</li>
+<li>✓ 30% improvement in patient satisfaction</li>
+<li>✓ 15% increase in throughput</li>
+</ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>Multi-source data integration (EHR, weather, local events)</li>
+<li>4-hour prediction horizon</li>
+<li>Automated staffing recommendations</li>
+</ul>
+<h3>Section 3: Retail Use Cases</h3>
+<h4>Use Case 1: Inventory Management — Demand Forecasting</h4>
+<p><strong>Customer:</strong> National Retail Chain (anonymized)</p>
+<p><strong>Challenge:</strong> 20% inventory carrying costs from overstocking. Stockouts causing lost sales.</p>
+<p><strong>Attentix Solution:</strong></p>
+<ul>
+<li>Multi-location demand prediction</li>
+<li>Seasonal trend analysis</li>
+<li>Supplier lead time optimization</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>✓ 35% reduction in inventory costs</li>
+<li>✓ 50% reduction in stockouts</li>
+<li>✓ 20% improvement in inventory turnover</li>
+</ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>1000+ SKUs processed daily</li>
+<li>Weather and economic indicator integration</li>
+<li>Automated reorder point calculation</li>
+</ul>
+<h3>Section 4: Manufacturing Use Cases</h3>
+<h4>Use Case 1: Predictive Maintenance — Equipment Failure Prediction</h4>
+<p><strong>Customer:</strong> Industrial Manufacturer (anonymized)</p>
+<p><strong>Challenge:</strong> Unplanned downtime costing $XXM annually. Reactive maintenance inefficient.</p>
+<p><strong>Attentix Solution:</strong></p>
+<ul>
+<li>IoT sensor data analysis</li>
+<li>Failure prediction with 30-day horizon</li>
+<li>Automated maintenance scheduling</li>
+</ul>
+<p><strong>Results:</strong></p>
+<ul>
+<li>✓ 60% reduction in unplanned downtime</li>
+<li>✓ 40% extension of equipment life</li>
+<li>✓ 25% reduction in maintenance costs</li>
+</ul>
+<p><strong>Technical Highlights:</strong></p>
+<ul>
+<li>10,000+ sensors monitored</li>
+<li>Multi-modal data fusion (vibration, temperature, current)</li>
+<li>Explainable failure predictions</li>
+</ul>
+</div>
 <hr>
-<h2>Section 7: Footer</h2>
+<div id="about">
+## About Attentix AI
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;We're Making AI Infrastructure That Works for Humans&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Founded by engineers frustrated with the gap between AI research and enterprise reality.&quot;</p>
+<p><strong>Visual:</strong> Team photo + company timeline</p>
+<p><strong>CTA:</strong> &quot;Join Our Team&quot; (careers page)</p>
+<h3>Section 1: Our Story</h3>
+<h4>The Founding Moment</h4>
+<p>In 2023, our founding team was building ML infrastructure at a Fortune 50 company. We had access to unlimited compute, top-tier data scientists, and every commercial ML tool available.</p>
+<p>Yet we still couldn't deploy reliable predictions at scale. Models would break when data schemas changed. Predictions took too long for real-time decisions. Our data scientists spent 80% of their time on infrastructure, not insights.</p>
+<p>We realized the problem wasn't lack of algorithms—it was lack of infrastructure designed for enterprise complexity.</p>
+<h4>The Breakthrough</h4>
+<p>We spent 18 months researching attention mechanisms (the tech behind ChatGPT). What if we could apply the same principles to enterprise data?</p>
+<p>Traditional ML treats all data equally. Attention lets models focus on what matters—automatically learning which features are relevant in context.</p>
+<p>The result: Attentix. Infrastructure that makes enterprise AI actually work.</p>
+<h3>Section 2: Our Values</h3>
+<h4>Value 1: Engineering Excellence</h4>
+<p>We build what we would want to use. Every decision prioritizes developer experience and operational reliability.</p>
+<p><strong>Manifestation:</strong> Open-source components, comprehensive documentation, 24/7 enterprise support.</p>
+<h4>Value 2: Customer Obsession</h4>
+<p>We measure success by customer outcomes, not product features.</p>
+<p><strong>Manifestation:</strong> Dedicated customer success team, quarterly business reviews, co-development partnerships.</p>
+<h4>Value 3: Scientific Rigor</h4>
+<p>AI is too important for enterprise decisions to be based on hype.</p>
+<p><strong>Manifestation:</strong> Published research, peer-reviewed methodologies, transparent benchmarking.</p>
+<h3>Section 3: Our Team</h3>
+<h4>Leadership Team</h4>
+<p><strong>CEO — [Name]</strong>
+Former enterprise software executive. 15 years building infrastructure for Fortune 500 companies.</p>
+<p><strong>CTO — [Name]</strong>
+PhD in AI/ML from Stanford. 20+ publications, 12 patents in distributed systems.</p>
+<p><strong>VP Engineering — [Name]</strong>
+Former Google infrastructure engineer. Built systems serving 1B+ users.</p>
+<h4>Engineering Team</h4>
+<p>12 engineers with average 8 years experience. Backgrounds in distributed systems, ML infrastructure, and enterprise software.</p>
+<h4>Advisors</h4>
 <ul>
-<li>Company Links: About, Careers</li>
-<li>Product Links: Technology, Use Cases, Get Started</li>
-<li>Legal: Privacy Policy, Terms, Security</li>
-<li>Social: LinkedIn, GitHub, Twitter</li>
-<li>Newsletter Signup: &quot;Stay updated on AI infrastructure&quot;</li>
-<li>Copyright: &quot;© 2026 Attentix AI. All rights reserved.&quot;</li>
+<li>Professor [Name], Stanford AI Lab</li>
+<li>Former Gartner VP of Data &amp; Analytics</li>
+<li>Serial entrepreneur with 3 successful exits</li>
 </ul>
+<h3>Section 4: Company Facts</h3>
+<h4>Founded: 2024</h4>
+<h4>Headquarters: San Francisco, CA</h4>
+<h4>Team Size: 15</h4>
+<h4>Funding: $XM Seed Round</h4>
+<h4>Patents: 12 filed, 8 granted</h4>
+<h4>Customers: XX enterprise deployments</h4>
+<h4>ARR: $XM</h4>
+</div>
 <hr>
-<h2>Design Notes</h2>
+<div id="get-started">
+## Get Started
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;From Zero to AI-Powered Intelligence in Days&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Our streamlined onboarding gets you from data to predictions faster than any other platform.&quot;</p>
+<p><strong>Visual:</strong> 5-step onboarding flowchart</p>
+<p><strong>CTA:</strong> &quot;Start Free Trial&quot; (14-day trial)</p>
+<h3>Section 1: Implementation Overview</h3>
+<h4>Phase 1: Discovery (Week 1)</h4>
+<p><strong>Activities:</strong></p>
 <ul>
-<li><strong>Color Scheme:</strong> Precision Noir (dark backgrounds with cyan/electric blue accents)</li>
-<li><strong>Typography:</strong> Inter for body, JetBrains Mono for code/technical elements</li>
-<li><strong>Spacing:</strong> Generous padding (48px sections), 32px gutters</li>
-<li><strong>Animations:</strong> Subtle micro-interactions on hover, smooth section transitions</li>
-<li><strong>Responsiveness:</strong> Mobile-first, touch-optimized CTAs (48px minimum), readable text sizes</li>
-<li><strong>Loading State:</strong> Skeleton screens for async-loaded data</li>
-<li><strong>Accessibility:</strong> WCAG 2.1 Level AA, alt text on all images, semantic HTML</li>
+<li>Data source assessment and connectivity testing</li>
+<li>Schema analysis and data quality evaluation</li>
+<li>Use case prioritization and success metrics definition</li>
 </ul>
-
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>Data connectivity report</li>
+<li>Recommended implementation roadmap</li>
+<li>Success metrics baseline</li>
+</ul>
+<p><strong>Team Involvement:</strong> Customer data team + Attentix solutions engineer</p>
+<h4>Phase 2: Integration (Week 2)</h4>
+<p><strong>Activities:</strong></p>
+<ul>
+<li>API key provisioning and security setup</li>
+<li>Data pipeline configuration</li>
+<li>Initial model training and validation</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>Connected data sources</li>
+<li>Configured prediction pipelines</li>
+<li>Baseline model performance report</li>
+</ul>
+<p><strong>Team Involvement:</strong> Attentix DevOps + customer IT team</p>
+<h4>Phase 3: Optimization (Week 3)</h4>
+<p><strong>Activities:</strong></p>
+<ul>
+<li>Model fine-tuning for specific use cases</li>
+<li>Performance optimization and scaling configuration</li>
+<li>Integration with existing workflows</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>Production-ready models</li>
+<li>Performance optimization report</li>
+<li>Integration documentation</li>
+</ul>
+<p><strong>Team Involvement:</strong> Attentix ML engineers + customer data scientists</p>
+<h4>Phase 4: Go-Live (Week 4)</h4>
+<p><strong>Activities:</strong></p>
+<ul>
+<li>Production deployment and monitoring setup</li>
+<li>User training and documentation</li>
+<li>Ongoing support transition</li>
+</ul>
+<p><strong>Deliverables:</strong></p>
+<ul>
+<li>Live production system</li>
+<li>User training materials</li>
+<li>Support handoff documentation</li>
+</ul>
+<p><strong>Team Involvement:</strong> Full cross-functional team</p>
+<h3>Section 2: Technical Requirements</h3>
+<h4>Data Sources</h4>
+<ul>
+<li><strong>Databases:</strong> PostgreSQL, MySQL, SQL Server, Snowflake, BigQuery, Redshift</li>
+<li><strong>Data Lakes:</strong> S3, GCS, Azure Blob Storage</li>
+<li><strong>Streams:</strong> Kafka, Kinesis, Event Hubs</li>
+<li><strong>APIs:</strong> REST, GraphQL, SOAP</li>
+</ul>
+<h4>Infrastructure Requirements</h4>
+<ul>
+<li><strong>Compute:</strong> Minimum 4-core CPU, 16GB RAM (cloud preferred)</li>
+<li><strong>Storage:</strong> 100GB+ for data processing</li>
+<li><strong>Network:</strong> Stable internet connection for data sync</li>
+</ul>
+<h4>Security &amp; Compliance</h4>
+<ul>
+<li><strong>Encryption:</strong> End-to-end data encryption</li>
+<li><strong>Access Control:</strong> Role-based permissions</li>
+<li><strong>Compliance:</strong> SOC 2 Type II, GDPR, CCPA ready</li>
+<li><strong>Data Residency:</strong> Configurable data storage locations</li>
+</ul>
+<h3>Section 3: Pricing &amp; Packaging</h3>
+<h4>Starter Plan ($XX/month)</h4>
+<ul>
+<li>Up to 1B data points/month</li>
+<li>3 data sources</li>
+<li>Basic support</li>
+<li>Community forum access</li>
+</ul>
+<h4>Professional Plan ($XX/month)</h4>
+<ul>
+<li>Up to 10B data points/month</li>
+<li>10 data sources</li>
+<li>Priority support</li>
+<li>Custom integrations</li>
+</ul>
+<h4>Enterprise Plan (Custom pricing)</h4>
+<ul>
+<li>Unlimited data points</li>
+<li>Unlimited data sources</li>
+<li>24/7 enterprise support</li>
+<li>Dedicated success manager</li>
+<li>Custom SLAs</li>
+</ul>
+<h3>Section 4: Support &amp; Resources</h3>
+<h4>Documentation</h4>
+<ul>
+<li><strong>API Reference:</strong> Complete REST API documentation</li>
+<li><strong>Integration Guides:</strong> Step-by-step tutorials for common integrations</li>
+<li><strong>Best Practices:</strong> Performance optimization and troubleshooting guides</li>
+</ul>
+<h4>Support Channels</h4>
+<ul>
+<li><strong>Email:</strong> support@attentix.ai (24/7 response)</li>
+<li><strong>Chat:</strong> In-app live chat (business hours)</li>
+<li><strong>Phone:</strong> Enterprise support line (business hours)</li>
+<li><strong>Community:</strong> User forum and knowledge base</li>
+</ul>
+<h4>Professional Services</h4>
+<ul>
+<li><strong>Implementation:</strong> Full-service onboarding and configuration</li>
+<li><strong>Training:</strong> Custom workshops and certification programs</li>
+<li><strong>Consulting:</strong> Architecture review and optimization services</li>
+</ul>
+<h3>Section 5: Success Stories</h3>
+<h4>Customer Testimonial 1</h4>
+<p><em>&quot;Attentix cut our time-to-insight from 3 months to 3 days. The attention-based predictions are incredibly accurate, and the explainability gives our team confidence in the results.&quot;</em></p>
+<p>— VP of Data Science, Fortune 500 Financial Services Company</p>
+<h4>Customer Testimonial 2</h4>
+<p><em>&quot;We've tried 3 other ML platforms. Attentix is the only one that actually scales to our data volumes without breaking. The automated feature engineering saves us weeks of development time.&quot;</em></p>
+<p>— Chief Data Officer, Global Retail Chain</p>
+<h4>Customer Testimonial 3</h4>
+<p><em>&quot;The ROI was immediate. Within the first month, we identified $2M in cost savings through predictive maintenance. The platform paid for itself in the first quarter.&quot;</em></p>
+<p>— Director of Operations, Industrial Manufacturer</p>
+</div>
+<hr>
+<div id="contact">
+## Contact & Support
+<h3>Hero Section</h3>
+<p><strong>Headline:</strong> &quot;Get in Touch&quot;</p>
+<p><strong>Subheadline:</strong> &quot;Ready to transform your data infrastructure? Let's talk.&quot;</p>
+<p><strong>Visual:</strong> Contact form + team photos</p>
+<p><strong>CTA:</strong> Contact form submission</p>
+<h3>Section 1: Contact Methods</h3>
+<h4>Sales Inquiries</h4>
+<p><strong>Email:</strong> sales@attentix.ai
+<strong>Phone:</strong> 1-XXX-XXX-XXXX
+<strong>Response Time:</strong> Within 4 hours</p>
+<h4>Technical Support</h4>
+<p><strong>Email:</strong> support@attentix.ai
+<strong>Phone:</strong> 1-XXX-XXX-XXXX
+<strong>Response Time:</strong> Within 2 hours (business hours)</p>
+<h4>Press &amp; Media</h4>
+<p><strong>Email:</strong> press@attentix.ai
+<strong>Response Time:</strong> Within 24 hours</p>
+<h4>Partnerships</h4>
+<p><strong>Email:</strong> partnerships@attentix.ai
+<strong>Response Time:</strong> Within 24 hours</p>
+<h3>Section 2: Office Locations</h3>
+<h4>Headquarters</h4>
+<p>Attentix AI Inc.
+123 Mission Street, Suite 456
+San Francisco, CA 94105
+United States</p>
+<h4>Europe Office</h4>
+<p>Attentix AI Ltd.
+45 King Street
+London, EC2V 8AE
+United Kingdom</p>
+<h3>Section 3: Connect With Us</h3>
+<h4>Social Media</h4>
+<ul>
+<li><strong>LinkedIn:</strong> /company/attentix-ai</li>
+<li><strong>Twitter:</strong> @AttentixAI</li>
+<li><strong>GitHub:</strong> /attentix-ai</li>
+</ul>
+<h4>Industry Events</h4>
+<p>We regularly speak at industry conferences. Check our events calendar for upcoming appearances.</p>
+<h4>Newsletter</h4>
+<p>Subscribe to our monthly newsletter for the latest in enterprise AI infrastructure.</p>
+<h3>Section 4: Support Resources</h3>
+<h4>Knowledge Base</h4>
+<ul>
+<li>Troubleshooting guides</li>
+<li>API documentation</li>
+<li>Best practices</li>
+<li>Video tutorials</li>
+</ul>
+<h4>Community Forum</h4>
+<ul>
+<li>User-to-user discussions</li>
+<li>Feature requests</li>
+<li>Integration examples</li>
+<li>Success stories</li>
+</ul>
+<h4>Training &amp; Certification</h4>
+<ul>
+<li>Online courses</li>
+<li>Live workshops</li>
+<li>Certification programs</li>
+<li>Partner training</li>
+</ul>
+<h3>Section 5: Legal &amp; Compliance</h3>
+<h4>Privacy Policy</h4>
+<p>How we collect, use, and protect your data.</p>
+<h4>Terms of Service</h4>
+<p>Legal terms governing your use of Attentix services.</p>
+<h4>Security</h4>
+<p>Our security practices and certifications.</p>
+<h4>Accessibility</h4>
+<p>Our commitment to digital accessibility.</p>
+</div>
     </main>
 
     <!-- Footer -->
